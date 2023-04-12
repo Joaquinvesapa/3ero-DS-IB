@@ -54,3 +54,16 @@ INSERT INTO matriculas(id, alumno_id, curso_id, fecha) VALUES
 (8,5,3,"2021-03-12")
 (9,6,1,"2021-03-10")
 (10,6,1,"2021-03-10")
+
+
+---
+Modificaciones
+
+
+ALTER TABLE alumnos ADD email varchar(20);
+
+UPDATE alumnos SET email = "juan@gmail.com" WHERE id = 1
+
+update cursos set nombre = "INGLES TECNICO" WHERE ID = 1
+
+UPDATE cursos SET cant_cred = cant_cred + 20
