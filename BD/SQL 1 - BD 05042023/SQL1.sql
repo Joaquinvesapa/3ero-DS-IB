@@ -67,3 +67,27 @@ UPDATE alumnos SET email = "juan@gmail.com" WHERE id = 1
 update cursos set nombre = "INGLES TECNICO" WHERE ID = 1
 
 UPDATE cursos SET cant_cred = cant_cred + 20
+
+CREATE TABLE docentes(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    nombre varchar(25),
+    fecha_nac datetime,
+    especialidad varchar(25)
+)
+
+INSERT INTO docentes(id, nombre, fecha_nac, especialidad) VALUES
+(1, "Daniela", "1995-01-01", "INGLES"),
+(2, "Pedro", "1994-10-10", "INGENIERIA")
+
+ALTER TABLE cursos ADD docente_id int REFERENCES docentes (id)
+
+INSERT INTO alumnos(nombre, sexo, fecha_nac, carrera_id, email)VALUES
+("Mateo", "M", "2001-02-20",2,"mateo@gmail.com")
+
+INSERT INTO matriculas(alumno_id, curso_id, fecha)VALUES
+(7, 2, GETDATE()),
+(7, 3, GETDATE())
+INSERT INTO matriculas(alumno_id, curso_id, fecha)VALUES
+(7, 2, GETDATE()),
+(7, 3, GETDATE())
+
