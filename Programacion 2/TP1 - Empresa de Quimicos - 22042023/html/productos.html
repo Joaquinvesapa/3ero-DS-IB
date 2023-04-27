@@ -5,14 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estilos/style.css">
-
-    <link rel="shortcut icon" href="../public/Logo.png">
-
+    <link rel="stylesheet" href="../estilos/productos.css">
+    <link rel="shortcut icon" href="Logo.png">
     <title>Alesis</title>
 </head>
 <body>
     <nav class="navbar">
-        <h1><font color="#008000">Alesis</font></h1>
+        <a href="empresa.html"><h1>Alesis</h1></a>
         <ul>
             <li><a href="empresa.html">Inicio</a></li>
             <li><a href="productos.html">Productos</a></li>
@@ -22,21 +21,47 @@
         </ul>
     </nav>
     <div class="content">
-        <h2>Productos</h2>
+        <h2><font size=20>Listado de Productos</font></h2>
+        <div class="grid-productos">
+            <div class="producto">
+                <a href="">
+                    <img src="../public/alchool_etilico.png" alt="">
+                    <p><strong>Alchool Etilico</strong></p>
+                    <p>$500</p>
+                </a>
+            </div>
+            <div class="producto">
+                <a href="">
+                    <img src="../public/Blanqueador.png" alt="">
+                    <p><strong>Blanqueador</strong></p>
+                    <p>$2000</p>
+                </a>
+            </div>
+            <div class="producto">
+                <a href="">
+                    <img src="../public/detergente_solido.png" alt="">
+                    <p><strong>Detergente Solido</strong></p>
+                    <p>$700</p>
+                </a>
+            </div>
+            <div class="producto">
+                <a href="">
+                    <img src="../public/shampoo.png" alt="">
+                    <p><strong>Shampoo Pantene</strong></p>
+                    <p>$420</p>
+                </a>
+            </div>
+            <div class="producto">
+                <a href="">
+                    <img src="../public/shampoo2.png" alt="">
+                    <p><strong>Shampoo Elvive</strong></p>
+                    <p>$425</p>
+                </a>
+            </div>
+        </div>
     </div>
     <footer>
         <p>Gracias por visitar nuestra pagina!</p>
     </footer> 
 </body>
-<style>
-    .content{
-        height: 80vh;
-        display: grid;
-        place-items: center;
-    }
-
-    h2{
-        font-size: 48px;
-    }
-</style>
 </html>
