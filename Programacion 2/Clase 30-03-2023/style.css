@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+/* 
+#6fabd0
+#92c0d7
+#d7F0e9
+#b0d5c7
+#477977 
+*/
+
 *{
   padding: 0;
   margin: 0;
@@ -7,6 +15,7 @@
   font-family: 'Poppins', sans-serif;
 } 
 h1{
+  color: #295982;
   font-size: 35px;
 }
 
@@ -14,9 +23,9 @@ h1{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 20px 25px;
+  padding: 5px 150px;
   border-bottom-style: solid;
-  border-bottom-color: green; 
+  border-bottom-color: #295982; 
   border-bottom-width: 3px;
 }
 
@@ -32,23 +41,20 @@ h1{
 
 .navbar a{
   text-decoration: none;
-  color: black;
+  color: #6fabd0;
 }
 
 .navbar a:hover{
-  color: #008000;
+  color: #295982;
   transition: 0.1s ease-in-out;
 }
 
 .parte1, .parte2{
   display: flex;
   justify-content: space-between;
-  margin-inline: 80px;
+  padding-inline:150px;
   margin-block: 80px;
   align-items: center;
-}
-.parte1 img{
-  margin-right: 40px;
 }
 
 .parte1 p, .parte2 p{
@@ -58,8 +64,8 @@ h1{
 
 footer{
   width: 100%;
-  height: 100px;
-  background-color: gray;
+  height: 80px;
+  background-color: #477977;
   display: grid;
   place-items: center;
 }
