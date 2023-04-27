@@ -74,3 +74,20 @@ footer p{
   font-weight: bold;
   font-size: 25px;
 }
+
+.grid-productos{
+  margin-inline: 150px ;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-content: center;
+}
+
+.producto{
+  display: grid;
+  padding: 20px;
+  place-items: center;
+}
+
+.producto img{
+  width: 80%;
+}
