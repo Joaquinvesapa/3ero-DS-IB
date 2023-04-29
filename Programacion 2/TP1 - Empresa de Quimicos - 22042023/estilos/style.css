@@ -85,3 +85,11 @@ footer p{
   font-weight: bold;
   font-size: 25px;
 }
+
+.ofertas-destacadas{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #c3c3c3;
+}
