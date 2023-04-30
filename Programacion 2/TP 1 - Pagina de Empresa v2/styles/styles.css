@@ -24,9 +24,6 @@ border-radius: 40%;
   font-family: 'Poppins', sans-serif;
 }
 
-body{
-}
-
 nav{
   display: flex;
   width: 100%;
@@ -35,11 +32,15 @@ nav{
   align-items: center;
   padding-inline: 150px;
   padding-block: 8px;
+  background-color: #ffffff;
+  z-index: 1a;
 }
 
 .icon{
   font-size: 30px;
   font-weight: 600;
+  text-decoration: none;
+  color: #000;
 }
 
 nav ul{
@@ -63,4 +64,77 @@ nav ul li a{
 nav ul li a:hover{
   background-color: #2149bf;
   color: #ffffff;
+}
+
+.content{
+  margin-inline: 150px;
+  padding-top: 65px;
+}
+
+.section-1{
+  height: 90vh;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: start; */
+}
+
+.section-1 .parr{
+  margin-top: 150px;
+  margin-right: 100px;
+}
+.parr a{
+  position: absolute;
+  margin-top: 25px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #2149bf;
+  padding: 10px 20px;
+  transition: 0.2s;
+  border-radius: 30px;
+}
+
+.parr a:hover{
+  background-color: #183181;
+}
+
+.parr p{
+  font-size: 19px;
+}
+
+.section-1 img{
+  /* margin-top: ; */
+  width: 35%;
+}
+
+.section-2{
+  height: 70vh;
+}
+
+.section-2 ul{
+  display: flex;
+  justify-content: space-around;
+  margin-inline: 20px;
+}
+
+.section-2 ul li{
+  display: flex;
+  padding-inline: 30px;
+  padding-block: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #474747;
+  border-radius: 30px;
+  text-align: center;
+
+}
+
+.section-2 ul li img{
+  width: 200px;
+  height: 150px;
+}
+
+.section-2 ul li p{
+  margin-top: 10px;
+  font-size: 17px;
 }
