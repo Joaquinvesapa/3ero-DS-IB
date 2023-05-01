@@ -204,3 +204,32 @@ nav ul li a:hover{
   border: 0px;
   outline: none;
 }
+
+footer{
+  background-color: #000;
+  width: 100%;
+  height: auto;
+  padding-inline: 200px;
+  padding-block: 30px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  color: #fff;
+  flex-direction: row;
+}
+
+footer ul {
+  text-align: end;
+  list-style: none;
+}
+
+footer ul li a{
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+footer ul li a:hover{
+  color: #2149bf;
+}
