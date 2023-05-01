@@ -33,7 +33,7 @@ nav{
   padding-inline: 150px;
   padding-block: 8px;
   background-color: #ffffff;
-  z-index: 1;
+  z-index: 2;
 }
 
 .icon{
@@ -81,6 +81,7 @@ nav ul li a:hover{
 .section-1 .parr{
   margin-top: 150px;
   margin-right: 100px;
+  z-index: 1;
 }
 .parr a{
   position: absolute;
@@ -104,13 +105,24 @@ nav ul li a:hover{
 .section-1 img{
   /* margin-top: ; */
   width: 35%;
+  z-index: 1;
+}
+
+.fondo-azul{
+  position: absolute;
+  height: 100vh;
+  right: 0;
+  background-color: #2149bf;
+  width: 45%;
 }
 
 .section-2{
+  align-items: center;
   height: 70vh;
 }
 
 .section-2 ul{
+  margin-top: 80px;
   display: flex;
   justify-content: space-around;
   margin-inline: 20px;
@@ -188,7 +200,7 @@ nav ul li a:hover{
   padding-inline: 10px;
   width: 90%;
   height: 30px;
-  border-radius: 10px;
+  border-radius: 7px;
   border: 0px;
   outline: none;
 }
