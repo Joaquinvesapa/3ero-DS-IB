@@ -37,7 +37,7 @@ nav{
 }
 
 .icon{
-  font-size: 30px;
+  font-size: 2vw;
   font-weight: 600;
   text-decoration: none;
   color: #000;
@@ -59,6 +59,7 @@ nav ul li a{
   text-decoration: none;
   border-radius: 15px;
   transition: 0.2s;
+  font-size: 2.1vh;
 }
 
 nav ul li a:hover{
@@ -75,16 +76,22 @@ nav ul li a:hover{
   height: 90vh;
   display: flex;
   justify-content: space-between;
-  /* align-items: start; */
+  align-items: center;
 }
 
 .section-1 .parr{
-  margin-top: 150px;
-  margin-right: 100px;
+  margin-right: 120px;
+  padding-right: 60px ;
+  display: grid;
+  place-content: center;
+  text-align: left;
+  height: 100%;
   z-index: 1;
 }
 .parr a{
-  position: absolute;
+  /* position: absolute; */
+  width: 180px;
+  text-align: center;
   margin-top: 25px;
   text-decoration: none;
   color: #ffffff;
@@ -99,7 +106,7 @@ nav ul li a:hover{
 }
 
 .parr p{
-  font-size: 19px;
+  font-size: 1.5vw;
 }
 
 .section-1 img{
@@ -117,15 +124,18 @@ nav ul li a:hover{
 }
 
 .section-2{
+  display: flex;
   align-items: center;
+  justify-content: center;
   height: 70vh;
 }
 
 .section-2 ul{
-  margin-top: 80px;
+  /* margin-top: 80px; */
   display: flex;
-  justify-content: space-around;
-  margin-inline: 20px;
+  justify-content: space-between;
+  /* margin-inline: 20px; */
+  width: 85%;
 }
 
 .section-2 ul li{
@@ -148,7 +158,7 @@ nav ul li a:hover{
 
 .section-2 ul li p{
   margin-top: 10px;
-  font-size: 17px;
+  font-size: 2.5vh;
 }
 
 .section-3{
@@ -184,7 +194,7 @@ nav ul li a:hover{
 }
 
 .form-side h2{
-  font-size: 35px;
+  font-size: 4vh;
 }
 
 .form-side form{
@@ -192,7 +202,7 @@ nav ul li a:hover{
 }
 
 .form-side label{
-  font-size: 14px;
+  font-size: 2vh;
 }
 
 .form-side input{
@@ -225,7 +235,7 @@ footer ul {
 
 footer ul li a{
   color: #fff;
-  font-size: 15px;
+  font-size: 2.5vh;
   text-decoration: none;
   transition: 0.2s;
 }
