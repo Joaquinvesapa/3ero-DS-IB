@@ -1,0 +1,27 @@
+.tittle{
+  margin-top: 50px;
+  text-align: start;
+  font-size: 2vw;
+}
+
+.main-grid{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-block: 10px;
+}
+
+.op-side{
+  margin-block: 20px;
+  margin-right: 20px;
+  height: 100%;
+  width: 25%;
+  border: 1px solid
+}
+
+.products{
+  width: 75%;
+  height: 100%;
+  border: 1px solid;
+}
