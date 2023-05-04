@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <title>Ejemplo CSS para enlaces</title>
+    <style type="text/css">
+        a:link {
+            color: #0000cc;
+        }
+
+        a:visited {
+            color: #0000cc;
+        }
+
+        a:active {
+            color: #0000cc;
+        }
+
+        a:hover {
+            color: #0000ff;
+        }
+
+        a.clase1:visited {
+            color: #ffff00;
+        }
+
+        a.clase1:active {
+            color: #ffff00;
+        }
+
+        a.clase1:link {
+            color: #ffff00
+        }
+
+        a.clase1:hover {
+            color: #00ff00
+        }
+
+        a.clase2:visited {
+            font-size: 12;
+            color: #ffffff;
+        }
+
+        a.clase2:active {
+            font-size: 12;
+            color: #ffffff;
+        }
+
+        a.clase2:link {
+            font-size: 12;
+            color: #ffffff;
+        }
+
+        a.clase2:hover {
+            font-size: 12;
+            color: #ffff33;
+        }
+
+        body {
+            font-family: arial;
+            font-size: 11;
+            font-weight: bold
+        }
+
+        td {
+            font-family: arial;
+            font-size: 11;
+            font-weight: bold
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">Este enlace es normal</a>
+    <br>
+    <br>
+    <br>
+    <span style="font-weight:normal;font-size:10">
+        Los enlaces de esta barra son especiales,
+        <br>
+        están definidos por clases
+    </span>
+    <br>
+    <table width="110" cellspacing="1" cellpadding="2" border="0">
+        <tr>
+            <td bgcolor="#aa0000"><a href="#" class="clase2">Opciones 1</a></td>
+        </tr>
+        <tr>
+            <td bgcolor="red"><a href="#" class="clase1">Enlace clase1</a></td>
+        </tr>
+        <tr>
+            <td bgcolor="red"><a href="#" class="clase1">Otro de clase1</a></td>
+        </tr>
+        <tr>
+            <td bgcolor="red"><a href="#" class="clase1">Más enlaces</a></td>
+        </tr>
+        <tr>
+            <td bgcolor="red"><a href="#" class="clase1">Todavía más</a></td>
+        </tr>
+    </table>
+</body>
+
+</html>
