@@ -10,14 +10,17 @@ let vacio = "";
 //     document.getElementById("table").innerHTML += "<tr>" + num + " X " + i + " = " + i * num + "<tr>";
 //     document.getElementById("table").innerHTML += row;
 //   }
+{/* <input class="btn" type="button" value="Reintentar"></input> */}
 if (!num.length) {
-  alert("El campo no puede ser vacio");
   document.getElementById("table").innerHTML +=
     "<h3>El campo no puede ser vacio</h2>";
+  document.getElementById('content').innerHTML += "<input id='btn' type='button' value='Reintentar'></input>";
+  document.getElementById('btn').addEventListener('click', function() {window.location.reload()});
 } else if (isNaN(num)) {
-  alert("El valor ingresado no es un numero");
   document.getElementById("table").innerHTML +=
     "<h3>El valor ingresado no es un numero</h2>";
+  document.getElementById('content').innerHTML += "<input id='btn' type='button' value='Reintentar'></input>";
+  document.getElementById('btn').addEventListener('click', function() {window.location.reload()});
 } else {
   const text = `El numero ingresado es: ${num}`;
   document.getElementById("text").innerHTML = text;
@@ -26,6 +29,9 @@ if (!num.length) {
       "<tr>" + num + " X " + i + " = " + i * num + "<tr>";
   }
 }
+
+
+
 
 // if (!isNaN(parseInt(num))) {
 //   const text = "El numero ingresado es: " + num;
@@ -54,6 +60,7 @@ if (!num.length) {
 //   alert("El valor ingresado es invalido");
 //   document.getElementById("table").innerHTML +=
 //     "<h3>El valor ingresado es invalido</h2>";
+//   document.getElementById('content').innerHTML += "<input id='btn' type='button' value='Reintentar'></input>";
 // }
 
 // console.log(num)

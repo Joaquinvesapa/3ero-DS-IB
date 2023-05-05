@@ -1,21 +1,22 @@
-.content h2{
-
+.content h3{
+  margin-top: 20px;
 }
 
 .content ul{
   display: flex;
   list-style: none;
-  margin-top: 20px;
+  margin-block: 20px;
 }
 
-.content ul li{
+.content ul li + li{
   margin-inline: 5px;
 }
 
 .content ul li a{
   padding-inline: 10px;
   padding-block: 2px;
-  color: #000000;
+  color: #fff;
+  background-color: #2149bf;
   text-decoration: none;
   border-radius: 15px;
   transition: 0.2s;
@@ -23,6 +24,5 @@
 }
 
 .content ul li a:hover{
-  background-color: #2149bf;
-  color: #ffffff;
+  background-color: #000000;
 }

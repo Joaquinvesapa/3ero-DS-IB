@@ -1,0 +1,142 @@
+.section-1{
+  height: 90vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-1 .parr{
+  margin-right: 120px;
+  padding-right: 60px ;
+  display: grid;
+  place-content: center;
+  text-align: left;
+  height: 100%;
+  z-index: 1;
+}
+.parr a{
+  /* position: absolute; */
+  width: 180px;
+  text-align: center;
+  margin-top: 25px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #2149bf;
+  padding: 10px 20px;
+  transition: 0.2s;
+  border-radius: 30px;
+}
+
+.parr a:hover{
+  background-color: #183181;
+}
+
+.parr p{
+  font-size: 1.5vw;
+}
+
+.section-1 img{
+  /* margin-top: ; */
+  width: 35%;
+  z-index: 1;
+}
+
+.fondo-azul{
+  position: absolute;
+  height: 100vh;
+  right: 0;
+  background-color: #2149bf;
+  width: 45%;
+}
+
+.section-2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+}
+
+.section-2 ul{
+  /* margin-top: 80px; */
+  display: flex;
+  justify-content: space-between;
+  /* margin-inline: 20px; */
+  width: 85%;
+}
+
+.section-2 ul li{
+  display: flex;
+  padding-inline: 30px;
+  padding-block: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #474747;
+  border-radius: 30px;
+  text-align: center;
+
+}
+
+.section-2 ul li img{
+  width: 200px;
+  height: 150px;
+}
+
+.section-2 ul li p{
+  margin-top: 10px;
+  font-size: 2.5vh;
+}
+
+.section-3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  height: auto;
+  width: 100%;
+  background-color: #0D1E56;
+}
+
+.form-box{
+  background-color:#183181 ;
+  width: 75%;
+  border-radius: 40px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.form-box img{
+  width: 60%;
+}
+
+.form-side{
+  width: 60%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 50px;
+}
+
+.form-side h2{
+  font-size: 4vh;
+}
+
+.form-side form{
+  margin-top:20px;
+}
+
+.form-side label{
+  font-size: 2vh;
+}
+
+.form-side input{
+  margin-block: 5px;
+  padding-inline: 10px;
+  width: 90%;
+  height: 30px;
+  border-radius: 7px;
+  border: 0px;
+  outline: none;
+}
