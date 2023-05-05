@@ -68,6 +68,7 @@ nav ul li a:hover{
 }
 
 .content{
+  height: 100vh;
   margin-inline: 150px;
   padding-top: 65px;
   height: 100vh;
