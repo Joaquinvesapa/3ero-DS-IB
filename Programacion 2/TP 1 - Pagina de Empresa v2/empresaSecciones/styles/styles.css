@@ -79,37 +79,6 @@ input#hamburger {
   display:none;
 }
 
-
-
-footer{
-  background-color: #000;
-  width: 100%;
-  height: auto;
-  padding-inline: 200px;
-  padding-block: 30px;
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  color: #fff;
-  flex-direction: row;
-}
-
-footer ul {
-  text-align: end;
-  list-style: none;
-}
-
-footer ul li a{
-  color: #fff;
-  font-size: 2.5vh;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-footer ul li a:hover{
-  color: #2149bf;
-}
-
 @media (max-width: 1000px) {
   nav{
     padding-inline: 50px;
@@ -127,7 +96,6 @@ footer ul li a:hover{
   }
   nav ul{
     display: none;
-    /* opacity: 0; */
     translate: 0px -500px;
     height: 0;
     float: right;
@@ -139,38 +107,6 @@ footer ul li a:hover{
   .content{
     margin-inline: 40px;
   }
-  /* label.hamburger {
-    display: block;
-    background: #fff;
-    width: 40px;
-    height: 60px;
-    position: relative;
-    cursor: pointer;
-  }
-  input#hamburger {
-    display:none
-  }
-  .line {
-    position: absolute;
-    height: 6px;
-    width: 100%;
-    background: #000;
-    transition: 0.5s;
-  }
-  .line:nth-child(1) { top: 12px; }
-  .line:nth-child(2) { top: 24px; }
-  .line:nth-child(3) { top: 36px; }
-  #hamburger:checked + .hamburger .line:nth-child(1){
-    transform: translateY(12px) rotate(-45deg);
-  }
-
-  #hamburger:checked + .hamburger .line:nth-child(2){
-    opacity:0;
-  }
-
-  #hamburger:checked + .hamburger .line:nth-child(3){
-    transform: translateY(-12px) rotate(45deg);
-  } */
   label.hamburger {
     float: right;
     display: flex;

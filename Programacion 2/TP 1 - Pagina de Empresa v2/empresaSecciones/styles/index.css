@@ -10,11 +10,14 @@
 .content ul{
   display: flex;
   list-style: none;
-  margin-block: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-.content ul  li + li{
-  margin-inline: 5px;
+.content ul li{
+  margin-right: 5px;
+  margin-top: 10px;
+  /* width: 400px; */
 }
 
 .content ul li a{
@@ -33,21 +36,8 @@
   background-color: #000000;
 }
 
-/* @media (max-width: 900px){
-  .content{
-    margin-inline: 60px;
-  }
-} */
-
 @media (max-width: 800px){
   .content{
     margin-inline: 40px;
-  }
-  .content ul{
-    flex-direction: column;
-  }
-  .content ul  li + li{
-    margin-top: 10px;
-    margin-inline: 0px;
   }
 }
