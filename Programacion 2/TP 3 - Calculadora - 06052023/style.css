@@ -22,7 +22,6 @@ body{
 
 .calculator{
   border-radius: 15px;
-  border: 1px solid;
   overflow: hidden;
   width: 320px;
   display: grid;
