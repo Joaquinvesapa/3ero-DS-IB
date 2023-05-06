@@ -103,3 +103,9 @@ footer ul li a{
 footer ul li a:hover{
   color: #2149bf;
 }
+
+@media (max-width: 1000px) {
+  .content{
+    margin-inline: 100px;
+  }
+}

@@ -1,8 +1,9 @@
-/* .content h2{
-  text-align: center;
-} */
+.content h2{
+  font-size: 30px;
+}
 
 .content h3{
+  font-size: 20px;
   margin-top: 20px;
 }
 
@@ -25,18 +26,28 @@
   text-decoration: none;
   border-radius: 15px;
   transition: 0.2s;
-  font-size: 2.1vh;
+  font-size: 18px;
 }
 
 .content ul li a:hover{
   background-color: #000000;
 }
 
+/* @media (max-width: 900px){
+  .content{
+    margin-inline: 60px;
+  }
+} */
+
 @media (max-width: 800px){
+  .content{
+    margin-inline: 40px;
+  }
   .content ul{
     flex-direction: column;
   }
   .content ul  li + li{
+    margin-top: 10px;
     margin-inline: 0px;
   }
 }

@@ -41,6 +41,7 @@ nav{
   font-weight: 600;
   text-decoration: none;
   color: #000;
+  z-index: 3;
 }
 
 nav ul{
@@ -109,6 +110,16 @@ footer ul li a:hover{
   color: #2149bf;
 }
 
+@media (max-width: 1000px) {
+  nav{
+    padding-inline: 50px;
+    align-items: center;
+  }
+  .content{
+    margin-inline: 50px
+  }
+}
+
 @media (max-width: 800px){
   nav{
     padding-inline: 40px;
@@ -116,8 +127,11 @@ footer ul li a:hover{
   }
   nav ul{
     display: none;
+    /* opacity: 0; */
+    translate: 0px -500px;
     height: 0;
     float: right;
+    z-index: 0;
   }
   .icon{
     font-size: 30px;
@@ -159,11 +173,8 @@ footer ul li a:hover{
   } */
   label.hamburger {
     float: right;
-    position: absolute;
     display: flex;
     background: #fff;
-    /* margin-right: 40px;
-    margin-top: 8px; */
     width: 40px;
     height: 45px;
     position: relative;
@@ -186,11 +197,24 @@ footer ul li a:hover{
   .line:nth-child(1) { top: 10px; }
   .line:nth-child(2) { top: 20px; }
   .line:nth-child(3) { top: 30px; }
-
+  
+  #hamburger:checked + .hamburger .line:nth-child(1){
+    transform: translateY(10px) rotate(-45deg);
+  }
+  
+  #hamburger:checked + .hamburger .line:nth-child(2){
+    opacity:0;
+  }
+  
+  #hamburger:checked + .hamburger .line:nth-child(3){
+    transform: translateY(-10px) rotate(45deg);
+  }
+  
   #hamburger:checked ~ ul{
     width: 100vw;
     top: 0px;
     position: absolute;
+    translate: 0px 0px;
     left: 0;
     right: 0;
     display: flex;
@@ -199,7 +223,7 @@ footer ul li a:hover{
     transition: 500ms all;
     height: 470px;
   }
-
+  
   #hamburger:checked ~ ul li{
     margin-inline: 0;
     color: #fff;
@@ -208,10 +232,7 @@ footer ul li a:hover{
     background-color: #183181;
     transition: 500ms;
   }
-  /* #hamburger:checked ~ ul li:hover{
-    background-color: #0D1E56;
-  } */
-
+  
   #hamburger:checked ~ ul li a{
     font-size: 20px;
     color: #fff;
@@ -220,4 +241,4 @@ footer ul li a:hover{
   #hamburger:checked ~ ul li a:hover{
     background-color: #0D1E56;
   }
-  }
+}
