@@ -1,3 +1,7 @@
+/* .content h2{
+  text-align: center;
+} */
+
 .content h3{
   margin-top: 20px;
 }
@@ -8,12 +12,13 @@
   margin-block: 20px;
 }
 
-.content ul li + li{
+.content ul  li + li{
   margin-inline: 5px;
 }
 
 .content ul li a{
   padding-inline: 10px;
+  text-align: center;
   padding-block: 2px;
   color: #fff;
   background-color: #2149bf;
@@ -25,4 +30,13 @@
 
 .content ul li a:hover{
   background-color: #000000;
+}
+
+@media (max-width: 800px){
+  .content ul{
+    flex-direction: column;
+  }
+  .content ul  li + li{
+    margin-inline: 0px;
+  }
 }
