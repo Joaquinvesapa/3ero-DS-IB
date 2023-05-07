@@ -74,15 +74,16 @@ body{
 
 .eq .btneq{
   border: 0px;
-  background-color: #e8f36e;
+  background-color: #f3e66e;
   width: 100%;
   height: 80px;
   font-size: 30px;
   color: #303344;
+  transition: 200ms all;
 }
 
 .eq .btneq:active{
-  background-color: #ebf57e;
+  background-color: #f7f2c6;
 }
 
 .nums input[type=button].op{
