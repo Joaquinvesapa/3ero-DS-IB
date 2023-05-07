@@ -13,12 +13,28 @@
 const inputs = document.querySelectorAll("input");
 const curCalculate = document.getElementById("curCalculate");
 
+let inicio = false;
+
 inputs.forEach(function (el) {
   el.addEventListener("click", function () {
     if (el.value === "AC") {
       curCalculate.value = "";
     } else if (el.value === "=") {
       curCalculate.value = eval(curCalculate.value);
+      inicio = true;
+    } else if (inicio === true) {
+      if (
+        el.value === "+" ||
+        el.value === "-" ||
+        el.value === "*" ||
+        el.value === "/"
+      ) {
+        curCalculate.value += el.value;
+        inicio = false;
+      } else {
+        curCalculate.value = el.value;
+        inicio = false;
+      }
     } else {
       curCalculate.value += el.value;
     }

@@ -16,8 +16,17 @@ body{
   height: 100vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  background-color: #303344;
+  background-color: rgb(48, 51, 68);
+}
+a{
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 5px 3px 7px rgba(31, 32, 43, 1);
 }
 
 .calculator{
@@ -25,6 +34,7 @@ body{
   overflow: hidden;
   width: 320px;
   display: grid;
+  box-shadow: 0px 10px 15px -3px rgb(31, 33, 43);
   grid-template-areas: 
     "curr curr curr curr"
     "nums nums nums op"
