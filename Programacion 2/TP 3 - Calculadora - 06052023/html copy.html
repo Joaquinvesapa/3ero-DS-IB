@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="mycalc.png">
+  <title>Calculator</title>
+</head>
+<body>
+  <a href="html.html">Calculadora</a>
+  <form name="calculator" class="calculator">
+    <input id="curCalculate" name="ans" type="text" value=""readonly>
+    <div class="nums">
+      <input class='n1' name="in1" type="button" onclick="document.calculator.ans.value+='1'" value="1">
+      <input class='n2' name="in2" type="button" onclick="document.calculator.ans.value+='2'"value="2">
+      <input class='n3' name="in3" type="button" onclick="document.calculator.ans.value+='3'"value="3">
+      <input class='op' name="in+" type="button" onclick="document.calculator.ans.value+='+'"value="+">
+      <input class='n4' name="in4" type="button" onclick="document.calculator.ans.value+='4'"value="4">
+      <input class='n5' name="in5" type="button" onclick="document.calculator.ans.value+='5'"value="5">
+      <input class='n6' name="in6" type="button" onclick="document.calculator.ans.value+='6'"value="6">
+      <input class='op' name="in-" type="button" onclick="document.calculator.ans.value+='-'"value="-">
+      <input class='n7' name="in7" type="button" onclick="document.calculator.ans.value+='7'"value="7">
+      <input class='n8' name="in8" type="button" onclick="document.calculator.ans.value+='8'"value="8">
+      <input class='n9' name="in9" type="button" onclick="document.calculator.ans.value+='9'"value="9">
+      <input class='op' name="in*" type="button" onclick="document.calculator.ans.value+='*'"value="*">
+      <input class='n0' name="in0" type="button" onclick="document.calculator.ans.value+='0'"value="0">
+      <input class='ac' name="inAC" type="button" onclick="document.calculator.ans.value=''"value="AC">
+      <input class='op' name="in/" type="button" onclick="document.calculator.ans.value+='/'"value="/">
+    </div>
+    <div class="eq">
+      <input class='btneq' name="eq" type="button" onclick="document.calculator.ans.value=eval(document.calculator.ans.value)" value="=">
+    </div>
+  </form>
+
+</body>
+</html>
