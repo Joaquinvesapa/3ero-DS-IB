@@ -75,9 +75,10 @@ a{
   display: flex;
   flex-wrap: wrap;
 }
+/*
 .nums input[type=button].n0{
   width: 160px;
-}
+}*/
 .eq{
   grid-area: eq;
 }
