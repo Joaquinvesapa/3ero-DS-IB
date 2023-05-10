@@ -217,3 +217,11 @@ SELECT 	ventas.id,
 from ventas
 INNER JOIN clientes ON clientes.ID = ventas.CLIENTEID
 WHERE ventas.TOTAL > (SELECT AVG(ventas.total) from ventas)
+
+-- 11 - Guardar el id del producto del cual se vendió la mayor cantidad y mostrar el nombre de su proveedor. (Usar variables y join)
+
+SET @id_producto_mayor = (SELECT PRODUCTOID from VENTAS_DETALLE where cantidad = (SELECT MAX(CANTIDAD) FROM ventas_detalle));
+
+SELECT proveedores.NOMBRE FROM productos
+INNER JOIN proveedores ON proveedores.IDPROV = productos.IDPROV
+WHERE productos.ID = @id_producto_mayor
