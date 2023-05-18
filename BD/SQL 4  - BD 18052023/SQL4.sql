@@ -114,3 +114,27 @@ INNER JOIN empleados ON empleados.id = compras.empleado_id
 INNER JOIN clientes ON clientes.id = compras.cliente_id
 
 -- 10.  Devuelve un listado con el código de pedido, nombre del cliente, nombre del empleado  y fecha del pedido de los pedidos pendientes
+SELECT compras.id, clientes.nombre, empleados.nombre, compras.fecha
+FROM compras
+INNER JOIN empleados ON empleados.id = compras.empleado_id
+INNER JOIN clientes ON clientes.id = compras.cliente_id
+WHERE compras.estado = 'Pendiente'
+
+-- 11. Calcula el número de clientes que tiene la empresa. 
+SELECT count(*) as CantClientes from clientes
+
+-- 12 . Mostrar el nombre del cliente que tiene menor límite de crédito y el que tiene mayo límite de crédito
+SET @maxLimiteCredito = (SELECT MAX(limite_credito) FROM clientes)
+SET @minLimiteCredito = (SELECT MIN(limite_credito) FROM clientes)
+SELECT nombre, limite_credito FROM clientes
+WHERE limite_credito in (@maxLimiteCredito, @minLimiteCredito) 
+
+-- 13 . Contar la cantidad de empleados de cada jefe
+-- 14 . Contar la cantidad de empleados de cada jefe, mostrar el nombre del empleado
+-- 15- Agregar a la tabla empleados el campo email.
+-- 16 -Cargar  los mails de los empleados, se armarán automáticamente de la siguiente manera, nombreDelEMpleado@empresa.com.ar  
+-- 17 - Subir todos los limites de credito de los clientes en un 5 %
+-- 18 -Mostrar los id de pedidos y fechas de aquellos pedidos realizados entre el 2008 y el 2010
+-- 19 - Mostrar los id y nombres de los empleados cuyo nombre comienza con A.
+-- 20 - Mostrar los id y nombres de los empleados cuyo nombres sean Daniel  Dartes y Mariana Juarez(Usar IN)
+
