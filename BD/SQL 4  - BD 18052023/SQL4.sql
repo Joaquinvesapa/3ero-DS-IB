@@ -79,3 +79,38 @@ INSERT INTO compras VALUES (1,'2006-01-17','Entregado',2,1), (2,'2007-10-26','En
 INSERT INTO productos VALUES ('11679','Sierra de Poda 400MM',20,'0,258',1500.15),('21636','Pala',20,'0,156',125.50),('22225','Rastrillo de Jardín',20,'1,064',590), ('AR-001','Ajedrea',40,'15,20',530.50), ('AR-002','Lavándula Dentata',30,'15,20',550), ('AR-008','Thymus Citriodra (Tomillo limón)',30,'1,064', 890.50), ('FR-100','Nectarina',40,'8,10',1000.60), ('FR-16','Calamondin Copa EXTRA Con FRUTA',40,'10,120',990)
 
 INSERT INTO compraproductos  VALUES (1,'11679', 10, 5,70.3,1), (2,'22225', 10, 3,70.3,2), (3,'21636',10,40,43.50,3),(4,'11679', 8, 5,76.3,1),(5,'21636', 8, 5,70.3,2), (6,'11679', 3, 5,70.3,1), (7,'FR-100', 3, 5,78.3,2), (8,'AR-008', 3, 5,70.3,3),(9,'AR-008', 1, 5,170.3,1),(10,'11679', 1, 5,90.3,2);
+
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+
+-- 1.Devuelve un listado con el código de oficina y la ciudad de la misma. 
+SELECT of.id, of.ciudad from oficinas 
+
+-- 2. Devuelve un listado con la ciudad y el teléfono de las oficinas de Rosario. 
+SELECT ciudad, telefono FROM oficinas WHERE ciudad = 'Rosario'
+-- 3. Devuelve un listado con el nombre y telefono de los empleados cuyo jefe tiene un código de jefe igual a 1. 
+SELECT nombre, telefono FROM empleado WHERE jefe_id = 1
+
+-- 4. Devuelve un listado con el nombre de los todos los clientes rosarinos.
+SELECTE nombre FROM clientes WHERE ciudad = 'Rosario'
+
+-- 5. Devuelve un listado con el nombre de los todos los clientes cuyo límite de crédito esta entre 10 y 300.
+SELECT nombre FROM clientes WHERE limite_credito BETWEEN 10 and 300
+
+-- 6. Mostrar los pedidos hechos en el  2008. 
+SELECT * FROM compras WHERE YEAR(fecha) = '2008'
+
+-- 7. Devuelve un listado con el código de pedido, nombre del cliente y fecha del pedido. (usar Join)
+SELECT id, clientes.nombre, fecha FROM compras
+INNER JOIN clientes ON clientes.id = compras.cliente_id
+
+-- 8.Mostrar los nombres de los  clientes que no realizaron compras
+SELECT ID, nombre FROM clientes WHERE id NOT IN (SELECT cliente_id FROM compras GROUP BY cliente_id);
+
+-- 9. Devuelve un listado con el código de pedido, nombre del cliente, nombre del empleado  y fecha del pedido
+SELECT compras.id, clientes.nombre, empleados.nombre, compras.fecha
+FROM compras
+INNER JOIN empleados ON empleados.id = compras.empleado_id
+INNER JOIN clientes ON clientes.id = compras.cliente_id
+
+-- 10.  Devuelve un listado con el código de pedido, nombre del cliente, nombre del empleado  y fecha del pedido de los pedidos pendientes
