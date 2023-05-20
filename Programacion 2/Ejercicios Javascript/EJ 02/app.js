@@ -27,6 +27,7 @@ const FORMULAS = {
 const temps1 = document.getElementById("temps1");
 const temps2 = document.getElementById("temps2");
 const btnCalc = document.getElementById("btnCalc");
+const result = document.getElementById("result");
 
 btnCalc.addEventListener("click", () => {
   if (temps1.value === temps2.value) {
@@ -34,6 +35,8 @@ btnCalc.addEventListener("click", () => {
   } else {
     const num = document.getElementById("num").value;
     let formulaName = temps1.value + "-" + temps2.value;
-    console.log(FORMULAS[formulaName](new Number(num)).toFixed(2));
+    const answ = FORMULAS[formulaName](new Number(num)).toFixed(2);
+    result.innerHTML = answ;
+    // console.log(FORMULAS[formulaName](new Number(num)).toFixed(2));
   }
 });
