@@ -45,14 +45,14 @@ export default ejs = {
   },
   "Ejercicio 12": {
     status: "doing",
-    desc: "",
+    desc: "Solicitando que se ingrese un número entero de 1 a 10 por teclado (validarlo), calcular y mostrar la tabla de dicho número. Debe contener un enlace para que se pueda volver a ejecutar la página para otro número.",
   },
   "Ejercicio 13": {
-    status: "doing",
+    status: "done",
     desc: "Calcular el factorial de un número que se ingresa por teclado. Validar el número para que sea entero.",
   },
   "Ejercicio 14": {
-    status: "doing",
+    status: "done",
     desc: "Mostrar la secuencia de la serie de Fibonacci para los n primeros términos siendo N un número natural que se ingresa por teclado. Validar que sea natural.",
   },
 };
@@ -84,11 +84,8 @@ Si están en orden mostrar la suma de los tres, si no están ordenados al ingres
 mostrar el producto entre los tres.
 10) Ingresar dos números. Si ambos son positivos, sumarlos y mostrar la suma. Caso
 contrario y si, además, ninguno es cero, mostrar la diferencia entre ambos.
-11) Ingresar la altura y la base de un triángulo. Calcular y mostrar la superficie si es
-posible. Caso contrario mostrar un cartel indicando la imposibilidad de mostrarlos.
-12) Solicitando que se ingrese un número entero de 1 a 10 por teclado (validarlo),
-calcular y mostrar la tabla de dicho número. Debe contener un enlace para que se pueda
-volver a ejecutar la página para otro número.
+11) Ingresar la altura y la base de un triángulo. Calcular y mostrar la superficie si es posible. Caso contrario mostrar un cartel indicando la  imposibilidad de mostrarlos.
+12) Solicitando que se ingrese un número entero de 1 a 10 por teclado (validarlo), calcular y mostrar la tabla de dicho número. Debe contener un enlace para que se pueda volver a ejecutar la página para otro número.
 13) Calcular el factorial de un número que se ingresa por teclado. Validar el número para que sea entero.
 14) Mostrar la secuencia de la serie de Fibonacci para los n primeros términos siendo N un número natural que se ingresa por teclado. Validar que sea natural.
 */
