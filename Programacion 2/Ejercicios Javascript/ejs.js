@@ -33,15 +33,15 @@ export default ejs = {
   },
   "Ejercicio 9": {
     status: "doing",
-    desc: "",
+    desc: "Se requiere un programa que posibilite el ingreso por teclado de tres números reales. Si están en orden mostrar la suma de los tres, si no están ordenados al ingresarlos, mostrar el producto entre los tres.",
   },
   "Ejercicio 10": {
     status: "doing",
-    desc: "",
+    desc: " Ingresar dos números. Si ambos son positivos, sumarlos y mostrar la suma. Caso contrario y si, además, ninguno es cero, mostrar la diferencia entre ambos.",
   },
   "Ejercicio 11": {
     status: "doing",
-    desc: "",
+    desc: " Ingresar la altura y la base de un triángulo. Calcular y mostrar la superficie si es posible. Caso contrario mostrar un cartel indicando la  imposibilidad de mostrarlos.",
   },
   "Ejercicio 12": {
     status: "doing",
@@ -80,11 +80,9 @@ cuántas son mayores de 18 años.
 8) Hacer un programa que permita convertir pesos a dólares y a reales. Para ello, el
 programador ya conoce la cotización de ambas monedas.
 9) Se requiere un programa que posibilite el ingreso por teclado de tres números reales.
-Si están en orden mostrar la suma de los tres, si no están ordenados al ingresarlos,
-mostrar el producto entre los tres.
-10) Ingresar dos números. Si ambos son positivos, sumarlos y mostrar la suma. Caso
-contrario y si, además, ninguno es cero, mostrar la diferencia entre ambos.
-11) Ingresar la altura y la base de un triángulo. Calcular y mostrar la superficie si es posible. Caso contrario mostrar un cartel indicando la  imposibilidad de mostrarlos.
+Si están en orden mostrar la suma de los tres, si no están ordenados al ingresarlos, mostrar el producto entre los tres.
+10) Ingresar dos números. Si ambos son positivos, sumarlos y mostrar la suma. Caso contrario y si, además, ninguno es cero, mostrar la diferencia entre ambos.
+11) Ingresar la altura y la base de un triángulo. Calcular y mostrar la  superficie si es posible. Caso contrario mostrar un cartel indicando la  imposibilidad de mostrarlos.
 12) Solicitando que se ingrese un número entero de 1 a 10 por teclado (validarlo), calcular y mostrar la tabla de dicho número. Debe contener un enlace para que se pueda volver a ejecutar la página para otro número.
 13) Calcular el factorial de un número que se ingresa por teclado. Validar el número para que sea entero.
 14) Mostrar la secuencia de la serie de Fibonacci para los n primeros términos siendo N un número natural que se ingresa por teclado. Validar que sea natural.

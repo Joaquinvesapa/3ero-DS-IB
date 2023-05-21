@@ -1,0 +1,125 @@
+:root {
+  --semidarkviolet: #250141;
+  --darkviolet: #150025;
+  --violet: #6800B9;
+  --rose: #9C038D;
+}
+
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html, body{
+  height: 100%;
+  background-color: var(--darkviolet);
+}
+
+header{
+  display: grid;
+  place-items: center;
+  height: 20%;
+}
+
+h1{
+  font-size: 50px;
+  color: #fff
+}
+
+section{
+  display: flex;
+  padding-inline: 100px;
+  justify-content: space-between;
+  height: 80%;
+  padding-bottom: 80px;
+}
+
+.form-add-factura{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  /* justify-content: cesnter; */
+  align-items: center;
+  color: #fff;
+}
+
+.form-add-factura h2{
+  font-size: 30px;
+  margin-block: 20px;
+  line-height: 2rem;
+}
+
+.form-add-factura input{
+  margin-block: 15px;
+  height: 40px;
+  width: 300px;
+  border-radius: 8px;
+  outline: none;
+  padding-left: 5px ;
+  border: 0;
+  transition: 0.1s all
+}
+
+.form-add-factura input:focus{
+  outline: 4px #6800B9 solid;
+}
+
+.form-add-factura input:last-child{
+  color:#fff;
+  font-weight: 500;
+  background-color: var(--violet);
+  font-size: 18px;
+  transition: 0.2s all;
+}
+
+.form-add-factura input:last-child:hover{
+  color:#fff;
+  font-weight: 500;
+  background-color: var(--semidarkviolet);
+}
+
+.form-add-factura input:last-child:active{
+  color:#fff;
+  font-weight: 500;
+  background-color: #46017b ;
+  
+}
+
+.grid-facturas{
+  height: 100%;
+  width: 80%;
+  background-color: var(--semidarkviolet);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column ;
+  padding-inline: 100px;
+}
+
+.grid-columns{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  color: #fff;
+}
+.grid-columns h2{
+  line-height: 2rem;
+}
+
+.facturas{
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  /* height: 100%; */
+}
+
+.factura{
+  flex-shrink: 0;
+  width: 100%;
+  background-color: var(--darkviolet);
+  border-radius: 8px;
+  height: 40px;
+  margin-block: 15px;
+}
+
