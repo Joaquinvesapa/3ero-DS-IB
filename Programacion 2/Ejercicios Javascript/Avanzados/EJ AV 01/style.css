@@ -91,7 +91,14 @@ section{
   outline: 4px #6800B9 solid;
 }
 
-.form-add-factura input:last-child{
+.form-add-factura button{
+  margin-block: 15px;
+  height: 40px;
+  width: 100%;
+  border-radius: 8px;
+  outline: none;
+  padding-left: 5px ;
+  border: 0;
   color:#fff;
   font-weight: 500;
   background-color: var(--violet);
@@ -99,13 +106,13 @@ section{
   transition: 0.2s all;
 }
 
-.form-add-factura input:last-child:hover{
+.form-add-factura button:hover{
   color:#fff;
   font-weight: 500;
   background-color: var(--semidarkviolet);
 }
 
-.form-add-factura input:last-child:active{
+.form-add-factura button:active{
   color:#fff;
   font-weight: 500;
   background-color: #46017b ;
@@ -128,6 +135,7 @@ section{
   display: grid;
   grid-template-columns: repeat(4,0.5fr);
   justify-items: center;
+  align-items: center;
   justify-content: space-between;
   padding: 20px 60px;
   color: #fff;
