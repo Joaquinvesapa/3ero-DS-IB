@@ -17,6 +17,42 @@ const FACTURAS = [
     monto: 50000,
     concepto: "Pago Cliente",
   },
+  {
+    fecha: "2023-04-30",
+    numCliente: "1278",
+    monto: 50000,
+    concepto: "Pago Cliente",
+  },
+  {
+    fecha: "2023-04-30",
+    numCliente: "1278",
+    monto: 50000,
+    concepto: "Pago Cliente",
+  },
+  {
+    fecha: "2023-04-30",
+    numCliente: "1278",
+    monto: 50000,
+    concepto: "Pago Cliente",
+  },
+  {
+    fecha: "2023-04-30",
+    numCliente: "1278",
+    monto: 50000,
+    concepto: "Pago Cliente",
+  },
+  {
+    fecha: "2023-04-30",
+    numCliente: "1278",
+    monto: 50000,
+    concepto: "Pago Cliente",
+  },
+  {
+    fecha: "2023-04-30",
+    numCliente: "1278",
+    monto: 50000,
+    concepto: "Pago Cliente",
+  },
 ];
 
 const validarFechaCliente = (newFactura) => {
