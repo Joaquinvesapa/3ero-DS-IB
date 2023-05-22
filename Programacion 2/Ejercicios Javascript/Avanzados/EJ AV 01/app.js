@@ -1,7 +1,23 @@
 /*
- Una empresa de cable necesita un programa en Javascript que permita la carga y la estadística de la facturación mensual. Emite una factura por mes para cada cliente. Para ello cuenta con los siguientes datos por cada factura que emite: fecha de la factura, número de cliente (un número que puede ser de 1 a 1278), monto de la factura, concepto de facturación. El programa debe permitir la carga de todas las facturas del mes y obtener un informe que incluya: cantidad total facturada, promedio de facturación por cliente, cantidad de clientes cuya facturación es superior a mil pesos. 
+ * Una empresa de cable necesita un programa en Javascript que permita la carga y la estadística de la facturación mensual. Emite una factura por mes para cada cliente. Para ello cuenta con los siguientes datos por cada factura que emite: 
+ 
+ ! => fecha de la factura
+
+ ! => Número de cliente (un número que puede ser de 1 a 1278)
+
+ ! => Monto de la factura, concepto de facturación.
+
+ * El programa debe permitir la carga de todas las facturas del mes y obtener un informe que incluya: 
+
+ TODO=> Cantidad total facturada 
+
+ TODO=> Cantidad de clientes cuya facturación es superior a mil pesos. 
+ 
+ TODO=> Promedio de facturación por cliente
+
  */
 const gridFacturas = document.querySelector(".facturas");
+const gridPromedios = document.querySelector(".promedios");
 const btnAgregar = document.querySelector(".btnAgregar");
 const inputs = document.querySelectorAll("input");
 const errorEl = document.querySelector(".noti");
@@ -187,10 +203,40 @@ const renderFacturas = () => {
     divFactura.innerHTML = `
     <p class="num-cliente">${numCliente}</p>
     <p class="fecha">${fecha}</p>
-    <p class="monto">${monto}</p>
+    <p class="monto">$${monto}</p>
     <p class="concepto">${concepto.length ? concepto : "-"}</p>`;
     gridFacturas.appendChild(divFactura);
   }
 };
 
 renderFacturas();
+
+const PROMEDIOS = [
+  {
+    numCliente: 1,
+    prom: "450,89",
+  },
+  {
+    numCliente: 2,
+    prom: "6789,89",
+  },
+  {
+    numCliente: 3,
+    prom: "89,89",
+  },
+];
+
+const renderPromedios = () => {
+  for (const promedio of PROMEDIOS) {
+    // console.log(FACTURAS);
+    let { numCliente, prom } = promedio;
+    let divPromedio = document.createElement("div");
+    divPromedio.className = "promedio";
+    divPromedio.innerHTML = `
+    <p class="num-cliente">${numCliente}</p>
+    <p class="prom">$${prom}</p>`;
+    gridPromedios.appendChild(divPromedio);
+  }
+};
+
+renderPromedios();
