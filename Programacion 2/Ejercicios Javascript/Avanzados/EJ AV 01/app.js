@@ -12,14 +12,48 @@ const errorEl = document.querySelector(".noti");
 
 const FACTURAS = [
   {
-    numCliente: 1278,
-    fecha: "29-04-2923",
+    fecha: "2023-04-30",
+    numCliente: "1278",
     monto: 50000,
     concepto: "Pago Cliente",
   },
 ];
 
-const validarFechaCliente = () => {};
+const validarFechaCliente = (newFactura) => {
+  const { numCliente: newNumberCliente } = newFactura;
+  const newFecha = new Date(newFactura.fecha);
+
+  const newMes = newFecha.getMonth();
+  const newAño = newFecha.getFullYear();
+
+  // console.log(newMes, newAño);
+
+  // let valido = false;
+  for (const factura of FACTURAS) {
+    const { numCliente } = factura;
+
+    const fecha = new Date(factura.fecha);
+
+    const mes = fecha.getMonth();
+    const año = fecha.getFullYear();
+
+    console.log(numCliente, newNumberCliente, newMes, mes);
+
+    // console.log(año, mes);
+    if (newNumberCliente === numCliente && newMes === mes && newAño === año) {
+      errorEl.firstElementChild.innerHTML =
+        "Este cliente ya tiene una factura este mes";
+      errorEl.className = "noti error visible";
+      setTimeout(() => {
+        errorEl.className = "noti error not-visible";
+      }, 3000);
+      // valido = false;
+      return false;
+    }
+  }
+
+  return true;
+};
 
 btnAgregar.addEventListener("click", () => {
   let newFactura = {};
@@ -28,6 +62,7 @@ btnAgregar.addEventListener("click", () => {
     newFactura[input.name] = input.value; //agregar valores de los inputs a la nueva factura
   });
   const { error, campo } = isValid(newFactura); //validar que los campos de la factura no sean invalidos
+  console.log(FACTURAS);
   if (error.length) {
     inputs.forEach((input) => {
       // motrar error segun el campo que este invalido
@@ -43,21 +78,26 @@ btnAgregar.addEventListener("click", () => {
     });
   } else {
     //agregar facturas al arreglo general
-    FACTURAS.push(newFactura);
-    gridFacturas.innerHTML = ""; //resetear grilla de facturas
-    renderFacturas(); //renderizar facturas
+    // console.log(validarFechaCliente(newFactura));
+    if (validarFechaCliente(newFactura)) {
+      FACTURAS.push(newFactura);
+      gridFacturas.innerHTML = ""; //resetear grilla de facturas
+      renderFacturas(); //renderizar facturas
 
-    //resetear campo
-    inputs.forEach((input) => {
-      input.value = "";
-    });
+      //resetear campo
+      inputs.forEach((input) => {
+        input.value = "";
+      });
 
-    //motrar succes
-    errorEl.firstElementChild.innerHTML = "Factura agregada correctamente";
-    errorEl.className = "noti succes visible";
-    setTimeout(() => {
-      errorEl.className = "noti succes not-visible";
-    }, 3000);
+      //motrar succes
+      errorEl.firstElementChild.innerHTML = "Factura agregada correctamente";
+      errorEl.className = "noti succes visible";
+      setTimeout(() => {
+        errorEl.className = "noti succes not-visible";
+      }, 3000);
+    } else {
+      return;
+    }
   }
 });
 
