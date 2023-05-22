@@ -1,16 +1,36 @@
 /*
-fecha de la factura
-número de cliente (un número que puede ser de 1 a 1278)
-monto de la factura
-concepto de facturación
-
-*/
+ Una empresa de cable necesita un programa en Javascript que permita la carga y la estadística de la facturación mensual. Emite una factura por mes para cada cliente. Para ello cuenta con los siguientes datos por cada factura que emite: fecha de la factura, número de cliente (un número que puede ser de 1 a 1278), monto de la factura, concepto de facturación. El programa debe permitir la carga de todas las facturas del mes y obtener un informe que incluya: cantidad total facturada, promedio de facturación por cliente, cantidad de clientes cuya facturación es superior a mil pesos. 
+ */
 const gridFacturas = document.querySelector(".facturas");
 const btnAgregar = document.querySelector(".btnAgregar");
 const inputs = document.querySelectorAll("input");
 const errorEl = document.querySelector(".noti");
 
 const FACTURAS = [
+  {
+    fecha: "2023-04-30",
+    numCliente: "1278",
+    monto: 50000,
+    concepto: "Pago Cliente",
+  },
+  {
+    fecha: "2023-04-30",
+    numCliente: "1278",
+    monto: 50000,
+    concepto: "Pago Cliente",
+  },
+  {
+    fecha: "2023-04-30",
+    numCliente: "1278",
+    monto: 50000,
+    concepto: "Pago Cliente",
+  },
+  {
+    fecha: "2023-04-30",
+    numCliente: "1278",
+    monto: 50000,
+    concepto: "Pago Cliente",
+  },
   {
     fecha: "2023-04-30",
     numCliente: "1278",

@@ -16,34 +16,37 @@
   <div class="noti not-visible">
     <p></p>
   </div>
-  <header>
-    <h1>Facturación🥐</h1>
-  </header>
-  <section>
-    <div class="form-add-factura">
-      <h2>Agregar Facturas</h2>
-      <input name="fecha" type="date" placeholder="Fecha">
-      <input name="numCliente"type="number" placeholder="Num Cliente">
-      <input name="monto"type="number" placeholder="Monto">
-      <input name="concepto"ype="text" placeholder="Concepto">
-      <button class="btnAgregar" >Agregar</button>
-    </div>
-    <div class="grid-facturas">
-      <div class="grid-columns">
-        <h2>Nro Cliente</h2>
-        <h2>Fecha</h2>
-        <h2>Monto</h2>
-        <h2>Concepto</h2>
+  <section class="section-1">
+    <header>
+      <h1>Facturación🥐</h1>
+    </header>
+    <div class="main-container">
+      <div class="form-add-factura">
+        <h2>Agregar Facturas</h2>
+        <input name="fecha" type="date" placeholder="Fecha">
+        <input name="numCliente"type="number" placeholder="Num Cliente">
+        <input name="monto"type="number" placeholder="Monto">
+        <input name="concepto"ype="text" placeholder="Concepto">
+        <button class="btnAgregar" >Agregar</button>
       </div>
-      <div class="facturas">
+      <div class="grid-facturas">
+        <div class="grid-columns">
+          <h2>Nro Cliente</h2>
+          <h2>Fecha</h2>
+          <h2>Monto</h2>
+          <h2>Concepto</h2>
+        </div>
+        <div class="facturas">
+        </div>
+        <!-- <div class="estadisticas">
+          <div><p>Total</p></div>
+          <div><p>nASHE</p></div>
+          <div><p>Dongui</p></div>
+        </div> -->
       </div>
-      <div class="estadisticas">
-        <div><p>Total</p></div>
-        <div><p>nASHE</p></div>
-        <div><p>Dongui</p></div>
-      </div>
-    </div>
   </section>
+  </div>
+  <section class="section-2"></section>
 </body>
 <script src="app.js"></script>
 
