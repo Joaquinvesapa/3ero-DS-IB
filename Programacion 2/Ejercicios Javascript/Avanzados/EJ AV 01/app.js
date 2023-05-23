@@ -21,75 +21,12 @@ const gridPromedios = document.querySelector(".promedios");
 const btnAgregar = document.querySelector(".btnAgregar");
 const inputs = document.querySelectorAll("input");
 const errorEl = document.querySelector(".noti");
+const pTotalFacturado = document.getElementById("total-facturado")
+const pCantClientes1k = document.getElementById("cant-clientes1k")
 
-const FACTURAS = [
-  {
-    fecha: "2023-04-30",
-    numCliente: "1278",
-    monto: 50000,
-    concepto: "Pago Cliente",
-  },
-  {
-    fecha: "2023-04-30",
-    numCliente: "1278",
-    monto: 50000,
-    concepto: "Pago Cliente",
-  },
-  {
-    fecha: "2023-04-30",
-    numCliente: "1278",
-    monto: 50000,
-    concepto: "Pago Cliente",
-  },
-  {
-    fecha: "2023-04-30",
-    numCliente: "1278",
-    monto: 50000,
-    concepto: "Pago Cliente",
-  },
-  {
-    fecha: "2023-04-30",
-    numCliente: "1278",
-    monto: 50000,
-    concepto: "Pago Cliente",
-  },
-  {
-    fecha: "2023-04-30",
-    numCliente: "1278",
-    monto: 50000,
-    concepto: "Pago Cliente",
-  },
-  {
-    fecha: "2023-04-30",
-    numCliente: "1278",
-    monto: 50000,
-    concepto: "Pago Cliente",
-  },
-  {
-    fecha: "2023-04-30",
-    numCliente: "1278",
-    monto: 50000,
-    concepto: "Pago Cliente",
-  },
-  {
-    fecha: "2023-04-30",
-    numCliente: "1278",
-    monto: 50000,
-    concepto: "Pago Cliente",
-  },
-  {
-    fecha: "2023-04-30",
-    numCliente: "1278",
-    monto: 50000,
-    concepto: "Pago Cliente",
-  },
-  {
-    fecha: "2023-04-30",
-    numCliente: "1278",
-    monto: 50000,
-    concepto: "Pago Cliente",
-  },
-];
+const facturasObj = {}
+let montosTotalesXCliente
+
 
 const validarFechaCliente = (newFactura) => {
   const { numCliente: newNumberCliente } = newFactura;
@@ -98,20 +35,14 @@ const validarFechaCliente = (newFactura) => {
   const newMes = newFecha.getMonth();
   const newAño = newFecha.getFullYear();
 
-  // console.log(newMes, newAño);
-
-  // let valido = false;
-  for (const factura of FACTURAS) {
-    const { numCliente } = factura;
+  for (const numCliente in facturasObj) {
+    const factura = facturasObj[numCliente];
 
     const fecha = new Date(factura.fecha);
 
     const mes = fecha.getMonth();
     const año = fecha.getFullYear();
 
-    console.log(numCliente, newNumberCliente, newMes, mes);
-
-    // console.log(año, mes);
     if (newNumberCliente === numCliente && newMes === mes && newAño === año) {
       errorEl.firstElementChild.innerHTML =
         "Este cliente ya tiene una factura este mes";
@@ -134,7 +65,6 @@ btnAgregar.addEventListener("click", () => {
     newFactura[input.name] = input.value; //agregar valores de los inputs a la nueva factura
   });
   const { error, campo } = isValid(newFactura); //validar que los campos de la factura no sean invalidos
-  console.log(FACTURAS);
   if (error.length) {
     inputs.forEach((input) => {
       // motrar error segun el campo que este invalido
@@ -150,11 +80,14 @@ btnAgregar.addEventListener("click", () => {
     });
   } else {
     //agregar facturas al arreglo general
-    // console.log(validarFechaCliente(newFactura));
     if (validarFechaCliente(newFactura)) {
-      FACTURAS.push(newFactura);
+      if(facturasObj[newFactura.numCliente]){
+        facturasObj[newFactura.numCliente].push(newFactura)
+      }else{
+        facturasObj[newFactura.numCliente] = [newFactura]
+      }
       gridFacturas.innerHTML = ""; //resetear grilla de facturas
-      renderFacturas(); //renderizar facturas
+      render(); //renderizar facturas
 
       //resetear campo
       inputs.forEach((input) => {
@@ -195,48 +128,64 @@ const isValid = (factura) => {
 };
 
 const renderFacturas = () => {
-  for (const factura of FACTURAS) {
+  for (const numCliente in facturasObj) {
     // console.log(FACTURAS);
-    let { numCliente, fecha, monto, concepto } = factura;
-    let divFactura = document.createElement("div");
-    divFactura.className = "factura";
-    divFactura.innerHTML = `
-    <p class="num-cliente">${numCliente}</p>
-    <p class="fecha">${fecha}</p>
-    <p class="monto">$${monto}</p>
-    <p class="concepto">${concepto.length ? concepto : "-"}</p>`;
-    gridFacturas.appendChild(divFactura);
+    facturasObj[numCliente].forEach(factura => {
+
+      let { fecha, monto, concepto } = factura;
+      // console.log(facturasObj[numCliente])
+      let divFactura = document.createElement("div");
+      divFactura.className = "factura";
+      divFactura.innerHTML = `
+      <p class="num-cliente">${numCliente}</p>
+      <p class="fecha">${fecha}</p>
+      <p class="monto">$${monto}</p>
+      <p class="concepto">${concepto.length ? concepto : "-"}</p>`;
+      gridFacturas.appendChild(divFactura);
+    })
   }
 };
-
-renderFacturas();
-
-const PROMEDIOS = [
-  {
-    numCliente: 1,
-    prom: "450,89",
-  },
-  {
-    numCliente: 2,
-    prom: "6789,89",
-  },
-  {
-    numCliente: 3,
-    prom: "89,89",
-  },
-];
-
 const renderPromedios = () => {
-  for (const promedio of PROMEDIOS) {
+  gridPromedios.innerHTML = ''
+  for (const promedio of montosTotalesXCliente) {
     // console.log(FACTURAS);
-    let { numCliente, prom } = promedio;
+    let { id, montoTotal, cantFacturas } = promedio;
+    console.log(montoTotal,cantFacturas)
     let divPromedio = document.createElement("div");
     divPromedio.className = "promedio";
     divPromedio.innerHTML = `
-    <p class="num-cliente">${numCliente}</p>
-    <p class="prom">$${prom}</p>`;
+    <p class="num-cliente">${id}</p>
+    <p class="prom">$${(Number(montoTotal)/Number(cantFacturas)).toFixed(2)}</p>`;
     gridPromedios.appendChild(divPromedio);
   }
 };
 
-renderPromedios();
+const calcularTotalFacturado = ()=>{
+  // for(const numCliente in facturasObj){
+    
+    // }
+    pTotalFacturado.textContent = `$${montosTotalesXCliente
+      .reduce((acc,total) => acc = Number(acc) + Number(total.montoTotal), 0)}`
+      
+      pCantClientes1k.textContent = `${(montosTotalesXCliente.filter(factura => factura.montoTotal > 1000).length)}`
+    }
+    
+    function calcularPromedios () {
+      montosTotalesXCliente = []
+      
+      for(id in facturasObj){
+        let montoTotal
+        montoTotal = facturasObj[id].reduce((acc, total) => acc = Number(acc) + Number(total.monto), 0)
+        console.log(montoTotal)
+        montosTotalesXCliente.push({id, montoTotal, cantFacturas: facturasObj[id].length})
+      }
+    }
+    
+    function render () {
+      renderFacturas();
+  calcularPromedios();
+  calcularTotalFacturado()
+  renderPromedios();
+  console.log(facturasObj)
+}
+render()

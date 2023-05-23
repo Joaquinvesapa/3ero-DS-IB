@@ -130,6 +130,8 @@ SELECT nombre, limite_credito FROM clientes
 WHERE limite_credito in (@maxLimiteCredito, @minLimiteCredito) 
 
 -- 13 . Contar la cantidad de empleados de cada jefe
+SELECT count(*), jefe_id from empleados WHERE jefe_id is not null group by jefe_id
+
 -- 14 . Contar la cantidad de empleados de cada jefe, mostrar el nombre del empleado
 -- 15- Agregar a la tabla empleados el campo email.
 -- 16 -Cargar  los mails de los empleados, se armarán automáticamente de la siguiente manera, nombreDelEMpleado@empresa.com.ar  

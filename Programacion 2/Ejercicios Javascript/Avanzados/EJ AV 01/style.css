@@ -281,4 +281,11 @@ section{
     font-size: clamp(13px, 2vw, 55px);
 
   }
+  section{
+    height: auto;
+    min-height: 100vh;
+  }
+  .estad-container{
+    flex-direction: column;
+  }
 }
