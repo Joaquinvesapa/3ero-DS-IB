@@ -21,12 +21,18 @@ const gridPromedios = document.querySelector(".promedios");
 const btnAgregar = document.querySelector(".btnAgregar");
 const inputs = document.querySelectorAll("input");
 const errorEl = document.querySelector(".noti");
-const pTotalFacturado = document.getElementById("total-facturado")
-const pCantClientes1k = document.getElementById("cant-clientes1k")
+const pTotalFacturado = document.getElementById("total-facturado");
+const pCantClientes1k = document.getElementById("cant-clientes1k");
 
-const facturasObj = {}
-let montosTotalesXCliente
-
+const facturasObj = {
+  // 1: [
+  //   { numCliente: 1, fecha: "2023-05-23", monto: 3899, concepto: "-" },
+  //   { numCliente: 1, fecha: "2023-05-23", monto: 3899, concepto: "-" },
+  //   { numCliente: 1, fecha: "2023-05-23", monto: 3899, concepto: "-" },
+  //   { numCliente: 1, fecha: "2023-05-23", monto: 3899, concepto: "-" },
+  // ],
+};
+let montosTotalesXCliente;
 
 const validarFechaCliente = (newFactura) => {
   const { numCliente: newNumberCliente } = newFactura;
@@ -34,16 +40,17 @@ const validarFechaCliente = (newFactura) => {
 
   const newMes = newFecha.getMonth();
   const newAño = newFecha.getFullYear();
+  // console.log(facturasObj);
 
-  for (const numCliente in facturasObj) {
-    const factura = facturasObj[numCliente];
-
+  for (const factura in facturasObj) {
+    // const factura = facturasObj[numCliente];
+    console.log(factura);
     const fecha = new Date(factura.fecha);
 
     const mes = fecha.getMonth();
     const año = fecha.getFullYear();
-
-    if (newNumberCliente === numCliente && newMes === mes && newAño === año) {
+    console.log(factura, newNumberCliente);
+    if (newNumberCliente === factura && newMes === mes && newAño === año) {
       errorEl.firstElementChild.innerHTML =
         "Este cliente ya tiene una factura este mes";
       errorEl.className = "noti error visible";
@@ -80,11 +87,12 @@ btnAgregar.addEventListener("click", () => {
     });
   } else {
     //agregar facturas al arreglo general
+    console.log(newFactura);
     if (validarFechaCliente(newFactura)) {
-      if(facturasObj[newFactura.numCliente]){
-        facturasObj[newFactura.numCliente].push(newFactura)
-      }else{
-        facturasObj[newFactura.numCliente] = [newFactura]
+      if (facturasObj[newFactura.numCliente]) {
+        facturasObj[newFactura.numCliente].push(newFactura);
+      } else {
+        facturasObj[newFactura.numCliente] = [newFactura];
       }
       gridFacturas.innerHTML = ""; //resetear grilla de facturas
       render(); //renderizar facturas
@@ -130,8 +138,7 @@ const isValid = (factura) => {
 const renderFacturas = () => {
   for (const numCliente in facturasObj) {
     // console.log(FACTURAS);
-    facturasObj[numCliente].forEach(factura => {
-
+    facturasObj[numCliente].forEach((factura) => {
       let { fecha, monto, concepto } = factura;
       // console.log(facturasObj[numCliente])
       let divFactura = document.createElement("div");
@@ -142,50 +149,63 @@ const renderFacturas = () => {
       <p class="monto">$${monto}</p>
       <p class="concepto">${concepto.length ? concepto : "-"}</p>`;
       gridFacturas.appendChild(divFactura);
-    })
+    });
   }
 };
 const renderPromedios = () => {
-  gridPromedios.innerHTML = ''
+  gridPromedios.innerHTML = "";
   for (const promedio of montosTotalesXCliente) {
     // console.log(FACTURAS);
     let { id, montoTotal, cantFacturas } = promedio;
-    console.log(montoTotal,cantFacturas)
+    // console.log(montoTotal, cantFacturas);
     let divPromedio = document.createElement("div");
     divPromedio.className = "promedio";
     divPromedio.innerHTML = `
     <p class="num-cliente">${id}</p>
-    <p class="prom">$${(Number(montoTotal)/Number(cantFacturas)).toFixed(2)}</p>`;
+    <p class="prom">$${(Number(montoTotal) / Number(cantFacturas)).toFixed(
+      2
+    )}</p>`;
     gridPromedios.appendChild(divPromedio);
   }
 };
 
-const calcularTotalFacturado = ()=>{
+const calcularTotalFacturado = () => {
   // for(const numCliente in facturasObj){
-    
-    // }
-    pTotalFacturado.textContent = `$${montosTotalesXCliente
-      .reduce((acc,total) => acc = Number(acc) + Number(total.montoTotal), 0)}`
-      
-      pCantClientes1k.textContent = `${(montosTotalesXCliente.filter(factura => factura.montoTotal > 1000).length)}`
-    }
-    
-    function calcularPromedios () {
-      montosTotalesXCliente = []
-      
-      for(id in facturasObj){
-        let montoTotal
-        montoTotal = facturasObj[id].reduce((acc, total) => acc = Number(acc) + Number(total.monto), 0)
-        console.log(montoTotal)
-        montosTotalesXCliente.push({id, montoTotal, cantFacturas: facturasObj[id].length})
-      }
-    }
-    
-    function render () {
-      renderFacturas();
-  calcularPromedios();
-  calcularTotalFacturado()
-  renderPromedios();
-  console.log(facturasObj)
+
+  // }
+  pTotalFacturado.textContent = `$${montosTotalesXCliente.reduce(
+    (acc, total) => (acc = Number(acc) + Number(total.montoTotal)),
+    0
+  )}`;
+
+  pCantClientes1k.textContent = `${
+    montosTotalesXCliente.filter((factura) => factura.montoTotal > 1000).length
+  }`;
+};
+
+function calcularPromedios() {
+  montosTotalesXCliente = [];
+
+  for (id in facturasObj) {
+    let montoTotal;
+    montoTotal = facturasObj[id].reduce(
+      (acc, total) => (acc = Number(acc) + Number(total.monto)),
+      0
+    );
+    // console.log(montoTotal);
+    montosTotalesXCliente.push({
+      id,
+      montoTotal,
+      cantFacturas: facturasObj[id].length,
+    });
+  }
 }
-render()
+
+function render() {
+  renderFacturas();
+  calcularPromedios();
+  calcularTotalFacturado();
+  renderPromedios();
+  // console.log(facturasObj);
+}
+render();

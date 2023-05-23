@@ -45,20 +45,20 @@
         </div> -->
       </div>
   </section>
-  </div>
+
   <section class="section-2">
     <header><h1>Estadisticas</h1></header>
     <div class="estad-container">
       <div class="left-side">
         <div class="">
             <h3>Cantidad Total Facturada</h3>
-            <p id="total-facturado">$987.54K</p>
-            <p></p>
+            <p id="total-facturado"></p>
+            <!-- <p></p> -->
         </div>
         <div class="">
           <h3>Clientes con mas de 1K Facturado</h3>
-            <p id="cant-clientes1k">10</p>
-            <p></p>
+            <p id="cant-clientes1k"></p>
+            <!-- <p></p> -->
         </div>
       </div>
       <div class="right-side">
@@ -68,26 +68,6 @@
           <h2>Promedio Facturado</h2>
         </div>
         <div class="promedios">
-          <!-- <div class="promedio">
-            <p class="num-cliente">1278</p>
-            <p class="concepto">$400,50</p>
-          </div>
-          <div class="promedio">
-            <p class="num-cliente">1278</p>
-            <p class="concepto">$400,50</p>
-          </div>
-          <div class="promedio">
-            <p class="num-cliente">1278</p>
-            <p class="concepto">$400,50</p>
-          </div>
-          <div class="promedio">
-            <p class="num-cliente">1278</p>
-            <p class="concepto">$400,50</p>
-          </div>
-          <div class="promedio">
-            <p class="num-cliente">1278</p>
-            <p class="concepto">$400,50</p>
-          </div> -->
         </div>
       </div>
     </div>
@@ -95,91 +75,6 @@
 </body>
 <script src="app.js"></script>
 <style>
-  .estad-container{
-    height: 85%;
-    /* background-color: aqua; */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;    
-  }
-  .left-side{
-    width: 40%;
-    height: 95%;
-    /* background-color: antiquewhite;     */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  } 
-  .left-side div{
-    text-align: center;
-    height: 48%;
-    width: 100%;
-    background-color: var(--semidarkviolet);
-    /* border: 1px #fff solid; */
-    border-radius: 20px;
-    color: #fff;
-    padding-block: 10px;    
-    display: flex;
-    flex-direction:column;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .right-side{
-    width: 55%;
-    height: 95%;
-    background-color: var(--semidarkviolet);
   
-    border-radius: 20px;
-  }  
-
-  .left-side h3, .right-side h3{
-    font-size: 40px;
-  }
-  .left-side p{
-    font-size: 50px;
-    font-weight: 500;
-  }
-  .left-side p:last-child{
-    font-size: 20px; 
-  }
-
-  .right-side {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    color: #fff;
-    padding-block: 30px;
-  }
-  .right-side .grid-columns{  
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    /* justify-content:  space-around; */
-    justify-content: space-between;
-    width: 80%;
-    padding-inline: 0;
-    grid-template-columns: repeat(2,0.5fr);
-  }
-
-  .right-side .promedios{
-    height: 80%;
-    width: 80%;
-  }
-
-  .right-side .promedio{
-    flex-shrink: 0;
-    width: 100%;
-    background-color: var(--darkviolet);
-    border-radius: 8px;
-    height: 40px;
-    margin-block: 15px;
-    display: grid;
-    grid-template-columns: repeat(2,0.5fr);
-    justify-items: center;
-    align-items: center;
-  }
   </style>
 </html>

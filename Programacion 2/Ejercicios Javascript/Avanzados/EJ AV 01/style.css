@@ -76,29 +76,37 @@ html, body{
 }
 
 header{
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 15%;
   background-color: var(--darkviolet);
   flex-basis: 300px;
-
 }
 
 h1{
-  font-size: 50px;
+  font-size: 5rem;
   color: #fff
 }
 
 section{
+  width: 100%;
   scroll-snap-align: start;
   background-color: var(--darkviolet);
   height: 100vh;  
-}
-
-.section-1 {
   display: flex;
   /* height: 100vh;   */
   flex-direction: column;
+}
+
+.section-1 {
+  /* display: flex;
+  /* height: 100vh;   
+  flex-direction: column;*/
+}
+.section-1 h2 {
+  font-size: 1.7rem;
+  white-space: nowrap;
 }
 
 .section-2{
@@ -134,7 +142,6 @@ section{
 
 .form-add-factura h2{
   text-align: center;
-  font-size: 30px;
   margin-block: 20px;
   line-height: 2rem;
 }
@@ -189,7 +196,7 @@ section{
 .grid-facturas{
   height: 90%;
   width: 70%;
-  background-color: var(--semidarkviolet);
+  background-color:var(--semidarkviolet);
   border-radius: 15px;
   display: flex;
   flex-direction: column ;
@@ -217,6 +224,7 @@ section{
 .facturas{
   height: 80%;
   width: 100%;
+  /* background-color: #6800B9; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -250,13 +258,125 @@ section{
   justify-content: space-between;
   align-items: center;
 }
+.estad-container{
+  height: 85%;
+  /* background-color: aqua; */
+  display: grid;
+  grid-template-columns: 40% 55%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;    
+}
+.left-side{
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} 
+.right-side{
+  /* width: 55%; */
+  height: 95%;
+  background-color: var(--semidarkviolet);
+  border-radius: 20px;
+}  
+.left-side div{
+  text-align: center;
+  height: 48%;
+  width: 100%;
+  background-color: var(--semidarkviolet);
+  /* border: 1px #fff solid; */
+  border-radius: 20px;
+  color: #fff;
+  padding-block: 10px;    
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: center;
+}
 
-@media (max-width: 1300px){
+.left-side h3, .right-side h3{
+  width: 70%;
+  font-size: 2.5rem;
+}
+
+#total-facturado, #cant-clientes1k {
+  font-size:3rem;
+  font-weight: 500;
+}
+.right-side .grid-columns{
+  font-size: 1rem;
+}
+
+.left-side div{
+  justify-content: center;
+  gap: 50px
+}
+
+.right-side {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  padding-block: 30px;
+}
+.right-side .grid-columns{  
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  /* justify-content:  space-around; */
+  justify-content: space-between;
+  width: 80%;
+  padding-inline: 0;
+  grid-template-columns: repeat(2,0.5fr);
+}
+
+.right-side .promedios{
+  height: 80%;
+  width: 80%;
+}
+
+.right-side .promedio{
+  flex-shrink: 0;
+  width: 100%;
+  background-color: var(--darkviolet);
+  border-radius: 8px;
+  height: 40px;
+  margin-block: 15px;
+  display: grid;
+  grid-template-columns: repeat(2,0.5fr);
+  justify-items: center;
+  align-items: center;
+}
+
+@media (max-width: 1500px){
+  .section-1 h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1368px){
+  html, body{
+    scroll-snap-type: none
+  }
+  header{
+    flex-basis: 150px;
+  }
+  h1{
+    font-size: 4rem;
+  }
+  /* .section-1{
+    min-height: 0px;
+  } */
+  .form-add-factura h2:first-child{
+    font-size:2rem;
+  }
   .main-container{
     flex-direction: column;
     align-items: center;
     padding-inline: 0px;
-    height: auto;
+    /* height: auto; */
   }
   .form-add-factura{
     width: 60%;
@@ -273,19 +393,95 @@ section{
   }
   .grid-columns h2{
     line-height: 1.5rem;
-    font-size: clamp(15px, 2vw, 55px);
+    /* font-size: clamp(15px, 2vw, 55px); */
 
   }
   .factura{
     padding-inline: 10px;
-    font-size: clamp(13px, 2vw, 55px);
+    /* font-size: clamp(13px, 2vw, 55px); */
 
   }
   section{
-    height: auto;
+    height: 100vh;
     min-height: 100vh;
   }
+  .section-1{
+    min-height: 0px;
+    height: auto;
+  }
+ 
+  .section-1 h2 {
+    font-size:1.5rem;
+  }
+  .left-side h3, .right-side h3{
+    width: 70%;
+    font-size: 1.8rem;
+  }
+
+  #total-facturado, #cant-clientes1k {
+    font-size:2.5rem;
+    font-weight: 500;
+  }
+  .right-side .grid-columns{
+    font-size: 1rem;
+  }
+
+  .left-side div{
+    justify-content: center;
+    gap: 50px
+  }
+  
+}
+@media (max-width: 900px){
   .estad-container{
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 90%;
+    justify-content: center;
+    /* background-color: red; */
+  }
+  .left-side h3, .right-side h3{
+    width: 70%;
+    font-size: 2rem;
+  }
+
+  #total-facturado, #cant-clientes1k {
+    font-size:2.5rem;
+    font-weight: 500;
+  }
+  .right-side .grid-columns{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 700px){
+  
+  h1{
+    font-size: 3rem;
+  }
+  
+  .main-container{
+    height: auto; 
+  }
+
+  .form-add-factura h2:first-child{
+    font-size:1.5rem;
+  }
+  .section-1 h2 {
+    font-size:1rem;
+  }
+  .factura p{
+    font-size: 0.7rem;
+  }
+  .left-side h3, .right-side h3{
+    width: 70%;
+    font-size: 1.5rem;
+  }
+
+  #total-facturado, #cant-clientes1k {
+    font-size:2rem;
+    font-weight: 500;
+  }
+  .right-side .grid-columns{
+    font-size: 0.8rem;
   }
 }
