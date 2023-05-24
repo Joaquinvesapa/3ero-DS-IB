@@ -25,12 +25,7 @@ const pTotalFacturado = document.getElementById("total-facturado");
 const pCantClientes1k = document.getElementById("cant-clientes1k");
 
 const facturasObj = {
-  // 1: [
-  //   { numCliente: 1, fecha: "2023-05-23", monto: 3899, concepto: "-" },
-  //   { numCliente: 1, fecha: "2023-05-23", monto: 3899, concepto: "-" },
-  //   { numCliente: 1, fecha: "2023-05-23", monto: 3899, concepto: "-" },
-  //   { numCliente: 1, fecha: "2023-05-23", monto: 3899, concepto: "-" },
-  // ],
+  1: [{ fecha: "2023-05-23", numCliente: "1", monto: 3899, concepto: "-" }],
 };
 let montosTotalesXCliente;
 
@@ -40,25 +35,30 @@ const validarFechaCliente = (newFactura) => {
 
   const newMes = newFecha.getMonth();
   const newAño = newFecha.getFullYear();
-  // console.log(facturasObj);
+  // console.log(facturasObj, newFactura);
+  // let valido = false
+  for (const numCliente in facturasObj) {
+    const facturas = facturasObj[numCliente]; //Extraigo las facturas almacenadas por determinado cliente
 
-  for (const factura in facturasObj) {
-    // const factura = facturasObj[numCliente];
-    console.log(factura);
-    const fecha = new Date(factura.fecha);
+    for (const facturaCliente in facturas) {
+      //al ser un array, debo iterarlo para conseguir los datos de cada factura de 1 cliente y poder compararlo con la factura entrante
+      //Extraigo el numCliente y la fecha de la factura almacenada que voy a comparar
+      const { numCliente } = facturas[facturaCliente];
+      const fecha = new Date(facturas[facturaCliente].fecha);
 
-    const mes = fecha.getMonth();
-    const año = fecha.getFullYear();
-    console.log(factura, newNumberCliente);
-    if (newNumberCliente === factura && newMes === mes && newAño === año) {
-      errorEl.firstElementChild.innerHTML =
-        "Este cliente ya tiene una factura este mes";
-      errorEl.className = "noti error visible";
-      setTimeout(() => {
-        errorEl.className = "noti error not-visible";
-      }, 3000);
-      // valido = false;
-      return false;
+      const mes = fecha.getMonth();
+      const año = fecha.getFullYear();
+
+      if (newNumberCliente === numCliente && newMes === mes && newAño === año) {
+        errorEl.firstElementChild.innerHTML =
+          "Este cliente ya tiene una factura este mes";
+        errorEl.className = "noti error visible";
+        setTimeout(() => {
+          errorEl.className = "noti error not-visible";
+        }, 3000);
+        // valido = false;
+        return false;
+      }
     }
   }
 
@@ -87,7 +87,7 @@ btnAgregar.addEventListener("click", () => {
     });
   } else {
     //agregar facturas al arreglo general
-    console.log(newFactura);
+    // console.log(validarFechaCliente(newFactura));
     if (validarFechaCliente(newFactura)) {
       if (facturasObj[newFactura.numCliente]) {
         facturasObj[newFactura.numCliente].push(newFactura);
