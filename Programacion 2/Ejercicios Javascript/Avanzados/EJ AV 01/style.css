@@ -98,21 +98,11 @@ section{
   /* height: 100vh;   */
   flex-direction: column;
 }
-
-.section-1 {
-  /* display: flex;
-  /* height: 100vh;   
-  flex-direction: column;*/
-}
 .section-1 h2 {
   font-size: 1.7rem;
   white-space: nowrap;
 }
 
-.section-2{
-  /* display: flex; */
-  /* width: 100%;s */
-}
 .main-container{
   display: flex;
   padding-inline: 100px;

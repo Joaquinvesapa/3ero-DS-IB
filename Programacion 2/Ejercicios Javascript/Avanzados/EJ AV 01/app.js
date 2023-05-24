@@ -137,10 +137,9 @@ const isValid = (factura) => {
 
 const renderFacturas = () => {
   for (const numCliente in facturasObj) {
-    // console.log(FACTURAS);
     facturasObj[numCliente].forEach((factura) => {
       let { fecha, monto, concepto } = factura;
-      // console.log(facturasObj[numCliente])
+
       let divFactura = document.createElement("div");
       divFactura.className = "factura";
       divFactura.innerHTML = `
@@ -155,9 +154,8 @@ const renderFacturas = () => {
 const renderPromedios = () => {
   gridPromedios.innerHTML = "";
   for (const promedio of montosTotalesXCliente) {
-    // console.log(FACTURAS);
     let { id, montoTotal, cantFacturas } = promedio;
-    // console.log(montoTotal, cantFacturas);
+
     let divPromedio = document.createElement("div");
     divPromedio.className = "promedio";
     divPromedio.innerHTML = `
@@ -170,9 +168,6 @@ const renderPromedios = () => {
 };
 
 const calcularTotalFacturado = () => {
-  // for(const numCliente in facturasObj){
-
-  // }
   pTotalFacturado.textContent = `$${montosTotalesXCliente.reduce(
     (acc, total) => (acc = Number(acc) + Number(total.montoTotal)),
     0
