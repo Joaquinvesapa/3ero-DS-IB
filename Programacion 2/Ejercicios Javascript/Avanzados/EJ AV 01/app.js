@@ -25,7 +25,7 @@ const pTotalFacturado = document.getElementById("total-facturado");
 const pCantClientes1k = document.getElementById("cant-clientes1k");
 
 const facturasObj = {
-  1: [{ fecha: "2023-05-23", numCliente: "1", monto: 3899, concepto: "-" }],
+  // 1: [{ fecha: "2023-05-23", numCliente: "1", monto: 3899, concepto: "-" }],
 };
 let montosTotalesXCliente;
 
