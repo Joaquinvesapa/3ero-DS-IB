@@ -14,15 +14,16 @@ btnCargarNotasAlumnos.addEventListener("click", () => {
   notasAlumnos.innerHTML = "";
   arreglo = [];
   for (let i = 0; i < 30; i++) {
-    let num = Math.random() * (10 - 1) + 1;
+    let num = Math.random() * (10 - 0) + 0;
     arreglo.push([Math.round(num), i]);
   }
   arreglo.forEach((nota) => {
     const li = document.createElement("li");
-    li.textContent = `Nota Alumno N° ${nota[1] + 1}: ${nota[0]}`;
+    li.textContent = `Nota Alumno N° ${nota[1]}: ${nota[0]}`;
     li.className = "nota-alumno";
     notasAlumnos.appendChild(li);
   });
+  console.log(arreglo);
 });
 
 function compare(a, b) {
@@ -31,6 +32,7 @@ function compare(a, b) {
 
 btnVerAbanderados.addEventListener("click", (e) => {
   e.preventDefault();
+  // console.log(arreglo);
   abanderado(arreglo);
 });
 
@@ -47,3 +49,4 @@ function abanderado(arreglo) {
       console.log(`Nota: ${nota[0]}, Posicion : ${nota[1]}`);
     });
 }
+[1, 3, 5, 2, 15, 5, 7];
