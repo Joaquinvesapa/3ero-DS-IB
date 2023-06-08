@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,100&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <section class="ejercicio">
+    <div class="numeros">
+    </div>
+    <button class="calcular">Calcular</button>
+  </section>
+  <section class="enunciado">
+    <div class="en-container">
+      <p>Escribir un programa en Javascript que cargue un array de 50 elementos con números al azar entre -500 y 500, y que no se repitan. Luego deberá armar una función que se llame Calculos que devolverá la suma de todos los elementos del array, la cantidad de números positivos y la cantidad de números negativos que se encuentren en el array. Fuera de la función, es decir en el script principal de Javascript, deberá imprimir esos tres valores.
+        <br>
+        <br>
+      Por último, deberá armar un nuevo array sólo con los números negativos
+      encontrados en el anterior. Deberá imprimirlo por pantalla, y en caso de que no se haya encontrado ningún número negativo, informar por pantalla de esta situación.</p>
+    </div>
+  </section>
+</body>
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+
+  }
+  html, body{
+  scroll-snap-type: y mandatory;
+    height: 100vh;
+  }
+  section{
+    height: 100%;
+  }
+  .ejercicio {
+  scroll-snap-align: start;
+    background-color: black;
+    padding-inline: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .enunciado{
+    display: grid;
+    place-items: center;
+    scroll-snap-align: end;
+  }
+  .en-container{
+    width: 1000px;
+    padding: 20px; 
+    border-radius: 15px;
+    background-color: black;
+    color: aliceblue;
+  }
+  .numeros{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    padding-inline: 100px;
+    padding-block: 50px;
+  }
+  .numeros p{
+    padding: 5px;
+    margin: 5px;
+    background-color: aliceblue;
+    text-align: center;
+    border-radius: 2px;
+  }
+</style>
+<script src="app.js"></script>
+</html>

@@ -3,6 +3,10 @@ export const ejs = {
     status: "doing",
     desc: "Una empresa de cable necesita un programa en Javascript que permita la carga y la estadística de la facturación mensual. Emite una factura por mes para cada cliente. Para ello cuenta con los siguientes datos por cada factura que emite: fecha de la factura, número de cliente (un número que puede ser de 1 a 1278), monto de la factura, concepto de facturación. El programa debe permitir la carga de todas las facturas del mes y obtener un informe que incluya: cantidad total facturada, promedio de facturación por cliente, cantidad de clientes cuya facturación es superior a mil pesos.",
   },
+  5:{
+    status: "doing",
+    desc: "Desarrollar la siguiente interfaz. Después que se hayan cargado 100 datos, obtener: KWH consumidos por quien más consumió, cantidad de habitantes de cada grupo que consumió más de 100 KWH, cantidad de personas con cada terminación de documento."
+  }
 };
 
 // 1) Una empresa de cable necesita un programa en Javascript que permita la carga y la estadística
@@ -27,6 +31,6 @@ export const ejs = {
 // diez). Necesitamos conocer, a través de un programa, la cantidad de alumnos cuyo promedio
 // supera los seis puntos, cantidad de alumnos que hay con cada promedio, legajos de los alumnos
 // a los que el promedio les da 10.
-// 5) Desarrollar la siguiente interfaz. Después que se hayan cargado 100 datos, obtener: KWH
-// consumidos por quien más consumió, cantidad de habitantes de cada grupo que consumió más
-// de 100 KWH, cantidad de personas con cada terminación de documento.
+5) Desarrollar la siguiente interfaz. Después que se hayan cargado 100 datos, obtener: KWH
+consumidos por quien más consumió, cantidad de habitantes de cada grupo que consumió más
+de 100 KWH, cantidad de personas con cada terminación de documento.
