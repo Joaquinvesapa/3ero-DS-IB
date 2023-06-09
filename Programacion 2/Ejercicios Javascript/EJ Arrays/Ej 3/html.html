@@ -12,6 +12,20 @@
     <div class="numeros">
     </div>
     <button class="calcular">Calcular</button>
+    <div class="resultados">
+      <!-- <div class="resultado">
+        <p>Suma</p>
+        <p>400</p>
+      </div>
+      <div class="resultado">
+        <p>Suma</p>
+        <p>400</p>
+      </div>
+      <div class="resultado">
+        <p>Suma</p>
+        <p>400</p>
+      </div> -->
+    </div>
   </section>
   <section class="enunciado">
     <div class="en-container">
@@ -69,7 +83,49 @@
     margin: 5px;
     background-color: aliceblue;
     text-align: center;
+    font-weight: 500;
     border-radius: 2px;
+  }
+  .calcular{
+    background-color: aliceblue;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    outline: none ;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .calcular:hover{
+    background-color: rgb(188, 188, 189);
+  }
+  .resultados{
+    margin-top: 20px;
+    height: 150px;
+    width: 700px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-around;
+    padding-inline: 20px;
+    padding-top: 40px;
+    /* align-items: center; */
+  }
+  .resultado{
+    width: 150px;
+    text-align: center;
+    /* margin-inline: 50px; */
+  }
+  .resultado > p:first-child{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+  .resultado > p:last-child{
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: 500;
   }
 </style>
 <script src="app.js"></script>

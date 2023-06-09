@@ -12,6 +12,8 @@ situación.
 */
 let arrNums = [];
 const divNumeros = document.querySelector(".numeros");
+const divResultados = document.querySelector(".resultados");
+const btnCalcular = document.querySelector(".calcular");
 // document.addEventListener("DOMContentLoaded", () =>{
 
 // })
@@ -21,21 +23,42 @@ const divNumeros = document.querySelector(".numeros");
 let suma = 0;
 let positivos = 0;
 let positivosArr = [];
-let negatibos = 0;
+let negativos = 0;
 let negatibosArr = [];
-
+let resultados = {};
+const renderResultados = () => {
+  divResultados.innerHTML = "";
+  for (resultado in resultados) {
+    let sumaP = document.createElement("p");
+    sumaP.innerHTML = `
+      <div class="resultado">
+        <p>${resultado}</p>
+        <p>${resultados[resultado]}</p>
+      </div>
+    `;
+    // sumaP.classList.add = "resultado";
+    divResultados.appendChild(sumaP);
+  }
+};
 const calculos = (arr) => {
+  positivos = 0;
+  negativos = 0;
   suma = arr.reduce((ac, currNum) => ac + currNum, 0);
   // console.log(suma);
   arr.forEach((num) => {
     if (Math.sign(num) === -1) {
-      negatibos++;
+      negativos++;
       negatibosArr.push(num);
     } else if (Math.sign(num) === 1) {
       positivos++;
       positivosArr.push(num);
     }
   });
+  resultados.suma = suma;
+  resultados.positivos = positivos;
+  resultados.negativos = negativos; // resultados.push(positivos);
+  renderResultados();
+  // resultados.push(negativos);
 };
 
 const generarNumeroAleatorio = () =>
@@ -50,11 +73,16 @@ for (let i = 0; i < 50; i++) {
   arrNums.push(agrNum);
 }
 
-console.log(arrNums);
-calculos(arrNums);
-console.log(
-  `Suma: ${suma}, Negativos: ${negatibos}, Positivos: ${positivos}, ${positivosArr}, ${negatibosArr}`
-);
+btnCalcular.addEventListener("click", () => {
+  calculos(arrNums);
+});
+
+// console.log(arrNums);
+// calculos(arrNums);
+// console.log(
+//   `Suma: ${suma}, Negativos: ${negativos}, Positivos: ${positivos}, ${positivosArr}, ${negatibosArr}`
+// );
+// console.log(resultados);
 
 const renderArray = () => {
   arrNums.forEach((num) => {
@@ -64,4 +92,5 @@ const renderArray = () => {
     divNumeros.appendChild(nump);
   });
 };
+
 renderArray();
