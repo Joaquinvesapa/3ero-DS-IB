@@ -134,18 +134,6 @@ input#hamburger {
   .line:nth-child(2) { top: 20px; }
   .line:nth-child(3) { top: 30px; }
   
-  #hamburger:checked + .hamburger .line:nth-child(1){
-    transform: translateY(10px) rotate(-45deg);
-  }
-  
-  #hamburger:checked + .hamburger .line:nth-child(2){
-    opacity:0;
-  }
-  
-  #hamburger:checked + .hamburger .line:nth-child(3){
-    transform: translateY(-10px) rotate(45deg);
-  }
-  
   #hamburger:checked ~ ul{
     width: 100vw;
     top: 0px;
