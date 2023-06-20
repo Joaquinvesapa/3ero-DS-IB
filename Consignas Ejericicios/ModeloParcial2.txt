@@ -1,0 +1,16 @@
+Desarrollar una página web con HTML, CSS y Javascript que permita:
+
+- Generar un arreglo cargado con 732 objetos cuyos atributos son:
+
+o Edad (debe generarla como un número aleatorio entre 20 y 120).
+o Número preferido (debe generarlo como un número entero aleatorio entre 0 y
+100).
+o Cantidad de libros leídos en la última década (debe generarlo como un
+número aleatorio entre 1 y 50).
+
+- Al finalizar la generación del arreglo anterior, debe mostrar la cantidad de personas
+de cada edad, el porcentaje de números pares preferidos y el porcentaje de números
+impares preferidos respecto al total de números, la cantidad de libros leídos por la
+gente de cada rango etáreo siendo el rango etáreo la década (por ejemplo, la
+cantidad de libros leídos por las personas de 20 a 30 años, la cantidad de libros
+leídos por las personas de 30 a 40 años, etc). 

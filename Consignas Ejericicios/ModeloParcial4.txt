@@ -1,0 +1,17 @@
+Desarrollar el enunciado que figura al pie del presente. Una vez que lo tenga
+resuelto, envíelo en un archivo compactado cuyo nombre debe ser ER-P2-
+2021-ApellidoNombre.rar (sin espacios intermedios) donde
+ApellidoNombre debe ser reemplazado por el apellido y nombre del
+alumno. Se deberá enviar como adjunto a la dirección de correo electrónico
+profedanteroselli@gmail.com. El envío deberá hacerse antes de las 09:30
+del día de hoy. Todo aquel que se envíe después de ese horario será
+considerado como no entregado.
+
+Enunciado a desarrollar en HTML, CSS y Javascript: Cargar 30 palabras
+mediante un formulario con caja de texto. La carga se deberá inhabilitar
+cuando se hayan ingresado las 30 palabras. En ese momento se deberá
+emitir un informe con los siguientes datos:
+
+- Promedio de cantidad de letras por palabra.
+- En qué orden fue cargada la palabra más larga.
+- La última palabra en sentido inverso 

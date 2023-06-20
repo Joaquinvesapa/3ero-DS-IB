@@ -1,0 +1,13 @@
+Consigna: Desarrollar el enunciado que figura al pie del presente. Una vez que lo tenga resuelto,
+envíelo en un archivo compactado cuyo nombre debe ser EP-P2-2021-ApellidoNombre.rar (sin
+espacios intermedios) donde ApellidoNombre debe ser reemplazado por el apellido y nombre
+del alumno. Se deberá enviar como adjunto a la dirección de correo electrónico
+profedanteroselli@gmail.com. El envío deberá hacerse antes de las 09:30 del día de hoy. Todo
+aquel que se envíe después de ese horario será considerado como no entregado.
+
+Enunciado a desarrollar en HTML, CSS y Javascript: Generar un número aleatorio entero entre 5
+y 25. Luego solicitar que se ingresen de a una, a través de una caja de texto, tantas palabras
+como la cantidad que indica el número generado. Una vez finalizada la carga, para cada una de
+las palabras, mostrar la misma con un cartel para cada una que indica si es palíndromo o no y si
+tiene cantidad de letras par o impar. Al finalizar el listado mostrar el promedio de letras por
+palabra.

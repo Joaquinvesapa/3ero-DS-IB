@@ -1,0 +1,18 @@
+Desarrollar una página web con HTML, CSS y Javascript que permita:
+
+- Cargar los siguientes datos referentes a taxis de la ciudad: dominio (patente formada
+por tres letras y tres dígitos o patente formada por dos letras, tres dígitos, y dos
+letras), recaudación del mes de mayo (en $), cantidad de viajes realizados en el
+mismo mes, color original del vehículo antes de ser pintado como taxi (se debe
+elegir de un combo con las siguientes opciones: rojo, azul, gris, blanco, otros).
+
+- Contener un botón que permita obtener, una vez cargados todos los datos, la
+siguiente estadística a partir de lo cargado en memoria: recaudación total (de todos
+los taxis), promedio de viajes realizados por vehículo en el mes de mayo, cantidad
+de autos cuyas patente o dominio finalice en numeración par, cantidad de viajes
+realizados por autos que originalmente eran de color blanco.
+
+Crear todo lo necesario en una carpeta en el escritorio. El nombre de la carpeta debe ser su
+apellido.
+
+Tiempo para resolverlo: 60 minutos. 

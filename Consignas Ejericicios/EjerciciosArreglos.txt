@@ -1,0 +1,21 @@
+1)Deberá cargar vector de 100 elementos por medio de un programa en Javascript,
+con números aleatorios entre -100 y 100. Realizar una función para mostrar los
+máximos relativos. Un máximo relativo es aquel término que es mayor que sus
+dos adyacentes.
+
+2)Escribir un programa en Javascript que cargue en un array las notas de 30
+alumnos de un curso (hacerlo con números al azar entre 0 y 10). Luego deberá
+armar una función llamada Abanderado que devolverá la nota de los 3 mejores
+alumnos. Fuera de la función, deberá imprimir las 3 notas y la ubicación de cada
+una dentro del array.
+
+3)Escribir un programa en Javascript que cargue un array de 50 elementos con
+números al azar entre -500 y 500, y que no se repitan. Luego deberá armar una
+función que se llame Calculos que devolverá la suma de todos los elementos
+del array, la cantidad de números positivos y la cantidad de números negativos
+que se encuentren en el array. Fuera de la función, es decir en el script principal
+de Javascript, deberá imprimir esos tres valores.
+Por último, deberá armar un nuevo array sólo con los números negativos
+encontrados en el anterior. Deberá imprimirlo por pantalla, y en caso de que no
+se haya encontrado ningún número negativo, informar por pantalla de esta
+situación.
