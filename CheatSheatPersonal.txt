@@ -1,0 +1,9 @@
+word.split('').reverse().join('') <== dar vuelta una palabra
+
+word.split('') <== insertar espacios entre cada elemento de un array. Esto devuelve [w, d, g, a]
+
+word.join('') <== quita los '' en un array o string. De [q,d,v,b] a 'qdvb'
+
+reverse() <== da vuelta el orden de un array
+
+array.at(*numero*) <== encuentra el elemento en la posicion que se le pase ahi. Si es negativo cuenta de atras a adelante y si es positivo cuenta de adelante a atras.

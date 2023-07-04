@@ -17,8 +17,9 @@ const emitirInforme = () =>{
   const informeHTML = `<p>Promedio de Letras x Pala Cargadas: ${totalLetras/5}</p>
   
   <p>Palabra mas larga: Palabra n° ${palabraMasLarga+1} = ${PALABRAS[palabraMasLarga]} </p>
-  <p>Ultima palbra inversa: ${PALABRAS.at(-1).split('').reverse().join('')} </p>`
-  divInforme.innerHTML = informeHTML;
+  <p>Ultima palbra inversa: ${PALABRAS.at(-1).split('').reverse().join('')} </p>
+  <button onclick='window.location.reload()'>cargar mas palabras</button>`
+  document.body.innerHTML = informeHTML;
 }
 
 inpSub.addEventListener('click', (e) => {
