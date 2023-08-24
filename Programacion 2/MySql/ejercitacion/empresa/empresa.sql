@@ -17,7 +17,7 @@ CREATE table proveedores(
     direccion varchar(50),
     telefono varchar(20),
     localidad_id int,
-    condicionFiscal ENUM("RI","EX","",),
+    condicionFiscal ENUM("RI","EX",""),
     FOREIGN KEY (localidad_id) REFERENCES localidades(id)
     );
 CREATE TABLE productos(
