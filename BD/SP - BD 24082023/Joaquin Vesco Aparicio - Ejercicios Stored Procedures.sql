@@ -144,17 +144,80 @@ END $$
 DELIMITER ;
 
 -- 11 - Recorrer la tabla y buscar la cantidad de veces que aparecen libros del Editorial X, mostrar 0 sino encuentra ninguno, 1 si encuentra 1 y 2 si encuentra más de 1.(no usar Count)
+DELIMITER $$
+CREATE PROCEDURE sp_cantidad_libros_editorial(
+  IN NombreEditorial varchar(20)
+)
+BEGIN
+SELECT
+  NombreEditorial,
+  CASE 
+        WHEN (SELECT MAX(codigo) FROM libros WHERE editorial = NombreEditorial) IS NOT NULL THEN
+            CASE 
+                WHEN (SELECT MAX(codigo) FROM libros WHERE editorial = NombreEditorial LIMIT 2) IS NOT NULL THEN 2
+                ELSE 1
+            END
+        ELSE 0
+    END As Cantidad_De_Libros;
+END $$
+DELIMITER ;
+ 
+-- 12 - Crear un stored procedure que recibe el nombre de una editorial y luego aumente en un 10% los precios de los libros de tal editorial:
+DELIMITE $$
+CREATE PROCEDURE aumentar_precios_x_editorial(
+  IN NombreEditorial varchar(20)
+)
+BEGIN
+  UPDATE libros 
+     SET precio = precio + precio * 0.1
+   WHERE libros.editorial = NombreEditorial;
+END $$
+DELIMITER ;
+
+CALL sp_aumentar_precios_x_editorial('Planeta')
+
+-- 13 - Crear un procedimiento que recibe 2 parámetros, el nombre de una editorial y el valor de incremento:
+
+DELIMITER $$
+CREATE PROCEDURE sp_aumentar_precios_editorial_incremento(
+  IN NombreEditorial varchar(20),
+  IN Incremento int
+)
+BEGIN
+  UPDATE libros 
+     SET precio = precio + Incremento
+   WHERE libros.editorial = NombreEditorial;
+END $$
+DELIMITER ;
 
 
+-- 14 - Crear un procedimiento almacenado que ingrese un nuevo libro en la tabla "libros":
+
+DELIMITER $$
+CREATE PROCEDURE sp_insertar_nuevo_libro(
+  IN Titulo varchar(40),
+  IN Autor varchar(30),
+  IN Editorial varchar(20),
+  IN Precio decimal(5,2)
+)
+BEGIN
+  INSERT INTO libros(titulo, autor, editorial, precio)
+  VALUES (Titulo,Autor,Editorial,Precio);
+END $$
+DELIMITER ;
 
 
-
-
-/*
-12 - Crear un stored procedure que recibe el nombre de una editorial y luego aumente en un 10% los precios de los libros de tal editorial:
-13 - Crear un procedimiento que recibe 2 parámetros, el nombre de una editorial y el valor de incremento:
-14 - Crear un procedimiento almacenado que ingrese un nuevo libro en la tabla "libros":
-15 - Crear un procedimiento almacenado que recibe el nombre de un autor  y nos retorna la suma de precios de todos sus libros y su promedio
-
-
- */
+-- 15 - Crear un procedimiento almacenado que recibe el nombre de un autor  y nos retorna la suma de precios de todos sus libros y su promedio
+DELIMITER $$
+CREATE PROCEDURE sp_total_precios_x_autor(
+  IN Autor varchar(30)
+)
+BEGIN
+  SELECT l.autor AS Autor,
+         ROUND(SUM(l.precio)) AS Total_Precios,
+         ROUND(AVG(l.precio)) AS Promedio_Precios
+    FROM libros l
+   WHERE l.autor = Autor
+GROUP BY l.autor;
+END $$
+DELIMITER ;
