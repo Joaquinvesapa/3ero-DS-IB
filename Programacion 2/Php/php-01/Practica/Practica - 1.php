@@ -32,7 +32,45 @@ El promedio de partículas H es NNNN.
 
 (código PLA-06).  -->
 <?php
+// header('Content-Type: application/json; charset=utf-8');
 
+// echo (json_encode($arr));
+function generarPlanetas(){
+    $particulas = array();
+    for($i = 0; $i < 9; $i++){
+        $valor = rand(0,50);
+        $particulas[] = $valor;
+    };
+    
+    return $particulas;
+}
+function planeta_con_mas_particulasH($particulas){
+    $max = 0;
+    for($i = 0; $i < 9; $i++){
+        if($particulas[$max] < $particulas[$i]){
+            $max = $i;
+            // return $max;
+        }
+    }
+    return $max;
+}
+function planeta_con_menos_particulasH($particulas){
+    $min = 0;
+    for($i = 0; $i < 9; $i++){
+        if($particulas[$min] > $particulas[$i]){
+            $min = $i;
+            // return $min;
+        }
+    }
+    return $min;
+}
+function promedio_particulas($particulas){
+    $total = 0;
+    for($i = 0; $i < 9; $i++){
+        $total = $total + $particulas[$i];
+    }
+    return $promedio = $total / count($particulas);
+}
 
 function generarVector($numN){
     $vec = array();
@@ -55,12 +93,22 @@ function esPrimo($contador){
         };
     }
 }
-    if($_SERVER["REQUEST_METHOD"] == "POST"){//SI DE PARTE DEL SERVER LLEGA UN METODO POST
 
+$planetas = array( "Mercurio", "Venus", "Tierra", "Marte",
+"Júpiter", "Saturno", "Urano", "Neptuno","Plutón");
+$particulas = generarPlanetas();
+if($_SERVER["REQUEST_METHOD"] == "POST"){//SI DE PARTE DEL SERVER LLEGA UN METODO POST
+    if(isset($_POST["inp-number"])){
         $numN = $_POST["inp-number"];
         $vector = generarVector($numN);
-       
-    }
+    }else if(isset($_POST["inp-generar-resp"])){
+        // echo $particulas;
+        $iplanetaMaxPart = planeta_con_mas_particulasH($particulas);
+        $iplanetaMinPart = planeta_con_menos_particulasH($particulas);
+        $promedio = promedio_particulas($particulas);
+    };
+    
+};
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,9 +120,11 @@ function esPrimo($contador){
 <body>
     <main>
         <div>
+            <h2>Ejercicio 1</h2>
             <form action="" method="post">
                 <label for="input-number">Inserte un número</label>
                 <input id="input-number" name="inp-number" type="number" placeholder="Numero">
+                <input id="input-enviar" name="inp-enviar" type="submit" value="Enviar">
             </form>
             <div name="array">
                 <?php
@@ -86,6 +136,28 @@ function esPrimo($contador){
                         endforeach;
                     endif;
                 ?>
+            </div>
+        </div>
+        <div>
+            <h2>Ejercicio 2</h2>
+            <form method="post">
+                <!-- <input type="submit" name="inp-planetas" value="Generar numero automaticamente"> -->
+                <!-- <input type="submit" name="inp-max-particulas" value="Planeta con max Particulas"> -->
+                <input type="submit" name="inp-generar-resp" value="Calcular">
+            </form>
+            <div>
+                <?php if(isset($iplanetaMaxPart) && isset($iplanetaMinPart)):?>
+                <strong>El planeta <?php echo $planetas[$iplanetaMaxPart] ?> es donde se detectaron más partículas H</strong>
+                <strong>El planeta <?php echo $planetas[$iplanetaMinPart] ?> es donde se detectaron menos partículas H</strong>
+                <strong>El promedio de partículas H es <?php echo round($promedio) ?></strong>
+                <?php endif ?>
+            </div>
+            <div>
+                <?php if(isset($particulas) && isset($planetas)) :?>
+                    <?php for($i = 0; $i < 9; $i++) : ?>
+                        <strong><?php echo $planetas[$i]; ?> : </strong><p><?php echo $particulas[$i]; ?></p>
+                    <?php endfor ?>
+                <?php endif ?>
             </div>
         </div>
     </main>
