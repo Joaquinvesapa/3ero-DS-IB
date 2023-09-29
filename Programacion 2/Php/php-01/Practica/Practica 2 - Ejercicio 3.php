@@ -26,7 +26,17 @@ alumnos. Fuera de la función, deberá imprimir las 3 notas y la ubicación de
 cada una dentro del array.
 (código PLA-02).  
 -->
-    <?php
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 2</title>
+</head>
+<body>      
+            <h2>Ejercicio 3</h2>
+            <?php
         function cargarArray(&$array, $cantEl = 6){
             for($i = 0; $i<$cantEl; $i++){
                 $array[] = rand(0,10);
@@ -49,14 +59,6 @@ cada una dentro del array.
             }
         }
             ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practica 2</title>
-</head>
-<body>
             <table border="1" style="border-collapse: collapse">
                 <tr>
                     <th>Indice</th>
@@ -71,5 +73,6 @@ cada una dentro del array.
                 </tr>
                 <?php endforeach ?>
             </table>
+            
 </body>
 </html>
