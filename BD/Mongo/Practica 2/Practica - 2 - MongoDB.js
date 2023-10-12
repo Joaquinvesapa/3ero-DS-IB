@@ -152,29 +152,99 @@ db.amigos.updateOne({},{$set: {"Profesion": "Desarrollador", "Mail":"Desarrollad
 db.amigos.updateOne({Nombre: "Luís"},{$set: {Apellidos: "Gomez"}});
 
 // 15 - Crear una variable y asignarle el siguiente json
-/*{
-     "Nombre" : "Juan",
+persona = {
+    "Nombre" : "Juan",
     "Apellidos" : "Perez",
     "Edad" : 29.0,
     "Aficiones" : [ 
         "fútbol", 
-        "natación” ],
+        "natación" ],
         "Amigos" : [ 
         {
             "Nombre" : "Luis",
             "Edad" : 18.0
         }
     ]
-}*/
+};
+db.amigos.insertOne(persona);
 // 16 - Agregarle una nueva aficion: Voley a todos los que tengan más de 20 años
+db.amigos.updateMany({Edad: {$gt: 20}}, {$push: {Aficiones: "Voley"}});
+
+//arreglar lo que hizo el boludo => 
+db.amigos.updateMany({Edad: {$gt: 20}}, {$unset: {Aficciones: 1}}, false, true)
 
 // 17 - Sacarle la aficion futbol a todos los que tengan más de 20 años
+db.amigos.updateMany({Edad: {$gt: 20}}, {$pull: {Aficiones: "futbol"}});
+
 // 18 - Al documento agregado en el punto 15, agregarle la siguiente dirección:
 // calle: "Sarmiento",numero:333, ciudad:Rosario
+db.amigos.updateOne({
+    "Nombre" : "Juan",
+    "Apellidos" : "Perez",
+    "Edad" : 29.0,
+    "Aficiones" : [ 
+        "fútbol", 
+        "natación" ],
+        "Amigos" : [ 
+        {
+            "Nombre" : "Luis",
+            "Edad" : 18.0
+        }
+    ]
+},
+{$push:{
+    Calle: "Sarmiento",
+    Numero:333,
+    Ciudad:"Rosario"
+}
+})
+
 
 // 19 - Agregarle el siguiente amigo al documento anterior:
 // Carolina, 20 años
+db.amigos.updateOne({
+    "Nombre" : "Juan",
+    "Apellidos" : "Perez",
+    "Edad" : 29.0,
+    "Aficiones" : [ 
+        "fútbol", 
+        "natación" ],
+        "Amigos" : [ 
+        {
+            "Nombre" : "Luis",
+            "Edad" : 18.0
+        }
+    ]
+},
+{$push: {Amigos :
+    {
+        Nombre: "Carolina",
+        Edad: 20
+    }
+}
+})
+
 // 20 - Modificar el documento anterior eliminando los campos que tiene agregando solamente la profesión de Desarrollador (tener en cuenta que tenemos que mantener nombre y apellido)
+db.amigos.updateMany({
+    "Nombre" : "Juan",
+    "Apellidos" : "Perez",
+    "Edad" : 29.0,
+    "Aficiones" : [ 
+        "fútbol", 
+        "natación" ],
+        "Amigos" : [ 
+        {
+            "Nombre" : "Luis",
+            "Edad" : 18.0
+        }
+    ]
+}, {$unset: {Aficiones: 1, Edad: 1, Amigos: 1, Calle: 1, Numero: 1, Ciudad: 1}, $set: {"Profesion": "Desarrollador"}}, false, true)
+
+db.amigos.updateMany({
+    "Nombre" : "Juan",
+    "Apellidos" : "Perez"
+}, {$unset: {$not:{Nombre, Apellidos}}, $set: {"Profesion": "Futbolista"}}, false, true)
+
 // 21 - Eliminar el último documento creado
 // 22 - Mostrar los nombres de las personas de este documento junto a la ciudad donde viven
 // 23 - Agregarle a los documentos de las personas que son de Rosario, el campo “Habitantes:2000000”
