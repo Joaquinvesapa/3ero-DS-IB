@@ -127,20 +127,140 @@ db.alumnos.updateOne({ Núm_Matrícula: 1 }, { $set: { Nombre: "Juan Mercado" } 
 // Agregarle a todos los docentes la especialidad “Docente”
 db.profesores.updateMany({}, { $push: { Especialidad: "Docente" } })
 
-//Hice un cambio
 // Ordenar a los alumnos por edades
+db.alumnos.find().sort({ Edad: 1 }) //Positivo creciente y negativo decreciente
 
 // Mostrar los nombres de las materias y el detalle de los alumnos (nombre y edad)
+db.asignaturas.aggregate([
+  {
+    $lookup: {
+      from: "alumnos",
+      localField: "Alumnos",
+      foreignField: "Nombre",
+      as: "Alumnos",
+    },
+  },
+  // {
+  //   $unwind: "$Alumnos",
+  // },
+  {
+    $project: {
+      Asignatura: "$Nombre",
+      NombreAlumno: ["$Alumnos.Nombre", "$Alumnos.Edad"],
+      // AlumnosData: {
+      //   // EdadAlumno: "$Alumnos.Edad",
+      // },
+    },
+  },
+])
 
 // Mostrar los profesores junto a la información de las materias y la cantidad de alumnos de las mismas que dicta
+db.profesores.aggregate([
+  {
+    $lookup: {
+      from: "asignaturas",
+      localField: "Nombre",
+      foreignField: "Profesor",
+      as: "Asignaturas",
+    },
+  },
+  {
+    $project: {
+      Nombre: 1,
+      Especialidad: 1,
+      Telefono: 1,
+      Asignaturas: "$Asignaturas",
+      NroAlumnos: "$Asignaturas.nroAlumnos",
+    },
+  },
+])
 
 // Mostrar los nombres de los  profesores junto los nombres de las materias que dicta
+db.profesores.aggregate([
+  {
+    $lookup: {
+      from: "asignaturas",
+      localField: "Nombre",
+      foreignField: "Profesor",
+      as: "Asignaturas",
+    },
+  },
+  {
+    $project: {
+      Nombre: 1,
+      Especialidad: 1,
+      Telefono: 1,
+      Asignaturas: "$Asignaturas.Nombre",
+    },
+  },
+])
 
 // Mostrar las materias dadas por un profesor X(Usar Match)
+db.profesores.aggregate([
+  {
+    $lookup: {
+      from: "asignaturas",
+      localField: "Nombre",
+      foreignField: "Profesor",
+      as: "Asignaturas",
+    },
+  },
+  {
+    $match: {
+      Nombre: "Juana Mora",
+    },
+  },
+  {
+    $project: {
+      Nombre: 1,
+      Especialidad: 1,
+      Telefono: 1,
+      Asignaturas: "$Asignaturas.Nombre",
+    },
+  },
+])
 
 // Contar la cantidad de materias donde trabaja el profesor X
+db.profesores.aggregate([
+  {
+    $lookup: {
+      from: "asignaturas",
+      localField: "Nombre",
+      foreignField: "Profesor",
+      as: "Asignaturas",
+    },
+  },
+  {
+    $match: {
+      Nombre: "Dario Mene",
+    },
+  },
+  {
+    $project: {
+      Nombre: 1,
+      Especialidad: 1,
+      Telefono: 1,
+      Asignaturas: { $size: "$Asignaturas.Nombre" },
+    },
+  },
+])
 
 // Crear un indice en la tabla Materias por cantidades de alumnos en forma ascendente
+db.asignaturas.createIndex({ nroAlumnos: 1 })
+
 //  Crear un indice en la tabla Materias indexando por nombre de materias y nombre de alumnos. Colocarle el nombre MateriasyAlumnos
+db.asignaturas.createIndex(
+  { Nombre: 1, Alumnos: 1 },
+  { name: "MateriasyAlumnos" }
+)
+
 //  Agregarle el campo dni a los docentes.
+db.profesores.find().forEach((doc) => {
+  db.profesores.updateOne(
+    { _id: doc._id },
+    { $set: { dni: Math.floor(Math.random() * 46000000) } } //Floor abajo, Ceil arriba, round depende por el 0.5
+  )
+})
+
 // Crea un indice en el campo dni de los docentes, éste debe ser único
+db.profesores.createIndex({ dni: 1 }, { unique: true })
