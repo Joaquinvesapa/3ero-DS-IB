@@ -127,6 +127,7 @@ db.alumnos.updateOne({ Núm_Matrícula: 1 }, { $set: { Nombre: "Juan Mercado" } 
 // Agregarle a todos los docentes la especialidad “Docente”
 db.profesores.updateMany({}, { $push: { Especialidad: "Docente" } })
 
+//Hice un cambio
 // Ordenar a los alumnos por edades
 
 // Mostrar los nombres de las materias y el detalle de los alumnos (nombre y edad)
