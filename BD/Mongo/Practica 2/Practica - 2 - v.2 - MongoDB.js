@@ -1,11 +1,9 @@
 // 1 - Creo una base de datos llamada personas
-use("persosas")
-
+use("personas")
 // 2 - Creo una colección dentro de personas llamada amigos
 db.createCollection("amigos")
-
 // 3 - Insertamos los datos de 5 personas cuyos datos son: nombre, apellido, edad, aficciones (futbol, tenis, musica, pintura, etc), telefonos(puede ser más de uno), dirección (compuesta por calle, nro, ciudad),amigos (compuesto por nombre y edad).
-db.amigos.insertMany(
+db.amigos.insertMany([
   {
     _id: ObjectId("632c50cf06fe4be888b1c511"),
     Nombre: "Marisa",
@@ -88,44 +86,33 @@ db.amigos.insertMany(
         Edad: 24.0,
       },
     ],
-  }
-)
+  },
+])
 
 // 4 - Mostrar todos los datos de la colección en forma legible
 db.amigos.find()
-
 // 5 - Se desea ver personas mayores de 25 años
-db.amigos.find({ edad: { $gt: 25 } })
-
+db.amigos.find({ Edad: { $gt: 25 } })
 // 6 - Mostrar el nombre, apellido y edad de las personas que se llamen Marisa
-db.amigos.find({ Nombre: "Marisa" }, { Nombre: 1, Apellido: 2, Edad: 3 })
-
+db.amigos.find({ Nombre: "Marisa" }, { Nombre: 1, Apellidos: 2, Edad: 3 })
 // 7 -Mostrar nombre y apellidos de los mayores de 25 años
 db.amigos.find({ Edad: { $gt: 25 } }, { Nombre: 1, Apellidos: 2 })
-
 // 8 - Insertar un documento mas solamente que tenga nombre, edad y aficciones
 db.amigos.insertOne({
   Nombre: "Joaquin",
-  Edad: 21,
-  Aficciones: ["Telista", "Developer", "Musico"],
+  Edad: 22,
+  Aficiones: ["Voleybolista", "Telista", "Ciclista"],
 })
-
 // 9 - Mostrar los nombres de las personas que no tengan amigos
 db.amigos.find({ Amigos: { $exists: false } }, { Nombre: 1 })
-
 // 10  -Mostrar nombre y aficiones de las personas que tienen mas de 17 años
-db.amigos.find({ Edad: { $gt: 17 } }, { Nombre: 1, Afficiones: 2 })
 
 // 11 - Mostrar las personas que juegan al tenis
-db.amigos.find({ Aficiones: { $all: ["tenis"] } })
 
 // 12 - Mostrar las personas mayores a 17 años y que juegan al tenis
-db.amigos.find({ Edad: { $gt: 17 }, Aficiones: { $all: ["tenis"] } })
-
+db.amigos.find({ Edad: { $gt: 17 }, Aficiones: { $in: ["tenis"] } })
 // 12A-  Mostrar las personas mayores a 28 años o que juegan al tenis
-db.amigos.find({
-  $or: [{ Edad: { $gt: 28 } }, { Aficiones: { $all: ["tenis"] } }],
-})
+db.amigos.find({ $or: [{ Edad: { $gt: 28 }, Aficiones: { $in: ["tenis"] } }] })
 
 // 13 - Agregar los siguientes campos
 // Primer registro, profesión: Desarrollador y mail: Desarrollador@gmail.com
@@ -133,128 +120,23 @@ db.amigos.updateOne(
   {},
   { $set: { Profesion: "Desarrollador", Mail: "Desarrollador@gmail.com" } }
 )
-
 // 14 -Modificar el apellido de Juan a Gomez
-db.amigos.updateOne({ Nombre: "Luís" }, { $set: { Apellidos: "Gomez" } })
-
+db.amigos.updateOne({ Nombre: "Juan" }, { $set: { Apellidos: "Gomez" } })
 // 15 - Crear una variable y asignarle el siguiente json
-persona = {
-  Nombre: "Juan",
-  Apellidos: "Perez",
-  Edad: 29.0,
-  Aficiones: ["fútbol", "natación"],
-  Amigos: [
-    {
-      Nombre: "Luis",
-      Edad: 18.0,
-    },
-  ],
-}
-db.amigos.insertOne(persona)
+
 // 16 - Agregarle una nueva aficion: Voley a todos los que tengan más de 20 años
-db.amigos.updateMany({ Edad: { $gt: 20 } }, { $push: { Aficiones: "Voley" } })
 
 //arreglar lo que hizo el boludo =>
-db.amigos.updateMany(
-  { Edad: { $gt: 20 } },
-  { $unset: { Aficciones: 1 } },
-  false,
-  true
-)
 
 // 17 - Sacarle la aficion futbol a todos los que tengan más de 20 años
-db.amigos.updateMany({ Edad: { $gt: 20 } }, { $pull: { Aficiones: "futbol" } })
 
 // 18 - Al documento agregado en el punto 15, agregarle la siguiente dirección:
 // calle: "Sarmiento",numero:333, ciudad:Rosario
-db.amigos.updateOne(
-  {
-    Nombre: "Juan",
-    Apellidos: "Perez",
-    Edad: 29.0,
-    Aficiones: ["fútbol", "natación"],
-    Amigos: [
-      {
-        Nombre: "Luis",
-        Edad: 18.0,
-      },
-    ],
-  },
-  {
-    $push: {
-      Calle: "Sarmiento",
-      Numero: 333,
-      Ciudad: "Rosario",
-    },
-  }
-)
 
 // 19 - Agregarle el siguiente amigo al documento anterior:
 // Carolina, 20 años
-db.amigos.updateOne(
-  {
-    Nombre: "Juan",
-    Apellidos: "Perez",
-    Edad: 29.0,
-    Aficiones: ["fútbol", "natación"],
-    Amigos: [
-      {
-        Nombre: "Luis",
-        Edad: 18.0,
-      },
-    ],
-  },
-  {
-    $push: {
-      Amigos: {
-        Nombre: "Carolina",
-        Edad: 20,
-      },
-    },
-  }
-)
 
 // 20 - Modificar el documento anterior eliminando los campos que tiene agregando solamente la profesión de Desarrollador (tener en cuenta que tenemos que mantener nombre y apellido)
-db.amigos.updateMany(
-  {
-    Nombre: "Juan",
-    Apellidos: "Perez",
-    Edad: 29.0,
-    Aficiones: ["fútbol", "natación"],
-    Amigos: [
-      {
-        Nombre: "Luis",
-        Edad: 18.0,
-      },
-    ],
-  },
-  {
-    $unset: {
-      Aficiones: 1,
-      Edad: 1,
-      Amigos: 1,
-      Calle: 1,
-      Numero: 1,
-      Ciudad: 1,
-    },
-    $set: { Profesion: "Desarrollador" },
-  },
-  false,
-  true
-)
-
-db.amigos.updateMany(
-  {
-    Nombre: "Juan",
-    Apellidos: "Perez",
-  },
-  {
-    $unset: { $not: { Nombre, Apellidos } },
-    $set: { Profesion: "Futbolista" },
-  },
-  false,
-  true
-)
 
 // 21 - Eliminar el último documento creado
 // 22 - Mostrar los nombres de las personas de este documento junto a la ciudad donde viven
@@ -262,5 +144,8 @@ db.amigos.updateMany(
 
 // 24 - Modificar las edades de las personas registrados en el documento aumentando la edad en 1
 db.amigos.updateMany({}, { $inc: { Edad: 1 } })
+
 // 25 - Mostrar los documentos ordenados de menor a mayor por edades
+db.amigos.updateMany({}, { $inc: { Edad: 1 } })
+
 // 26 - Mostrar los campos nombre y edad de los documentos ordenados de mayor a menor por edades
